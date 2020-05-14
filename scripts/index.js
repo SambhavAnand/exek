@@ -1,6 +1,7 @@
-const as = require('applescript');
-//tell application "System Events" to keystroke "7" using {command down, shift down}
-const {site_command_map} = require('./mapping.js')
+const as = require('applescript')
+const {
+    siteCommandMap
+} = require('./mapping.js')
 
 const script = `tell application "Google Chrome"
     repeat with w in windows
@@ -9,11 +10,8 @@ const script = `tell application "Google Chrome"
 			if URL of t starts with "https://mail.google.com/" then
 				tell application "Google Chrome" to activate
 				set active tab index of w to i
-				set index of w to 1
-                tell application "System Events" to ${site_command_map['mail.google.com'][0].command}
-                 tell application "System Events" to ${site_command_map['mail.google.com'][1].command}
-
-                tell application "System Events" to keystroke "www.google.com"
+                set index of w to 1
+                tell application "System Events" to ${siteCommandMap['mail.google.com'][10].command}
                 return
 			end if
 			set i to i + 1
@@ -33,16 +31,19 @@ const getForeMost = `tell application "System Events"
 end tell`;
 
 async function run() {
-    as.execString(active, function(err, ret) {
-        console.log(ret);
-        as.execString(script, function(errAct, newRet) {
-            if(errAct)
-                console.log(errAct);
-            else
-                console.log(newRet);
+    as.execString(active, function (err, ret) {
+        if (err) {
+            console.log('error occurred')
+        }
+        console.log(ret)
+        as.execString(script, function (errAct, newRet) {
+            if (errAct) {
+                console.log(errAct)
+            } else {
+                console.log(newRet)
+            }
         })
-
-    });
+    })
 }
 
-run();
+run()
