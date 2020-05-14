@@ -3,11 +3,10 @@ const applescript = require('applescript')
 const errors = require('../errors')
 const {siteCommandMap} = require('./mappings.js')
 
-const activeTabQstr = `tell application "Google Chrome" to return URL of active tab of front window`;
-
-function isValidWebsite () {
+function isValidChromeWebsite () {
+    const activeChromeQstr = `tell application "Google Chrome" to return URL of active tab of front window`;
     return new Promise(function (resolve, reject) {
-        applescript.execString(activeTabQstr, function (err, url) {
+        applescript.execString(activeChromeQstr, function (err, url) {
             if(err)
                 reject(errors['APPLESCRIPT'])
             Object.keys(siteCommandMap).forEach(key => {
@@ -20,5 +19,5 @@ function isValidWebsite () {
 }
 
 module.exports = {
-    isValidWebsite
+    isValidChromeWebsite
 }
