@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut } = require('electron')
+const { app, BrowserWindow, globalShortcut, Menu, MenuItem } = require('electron')
 
 
 app.whenReady().then(() => {
