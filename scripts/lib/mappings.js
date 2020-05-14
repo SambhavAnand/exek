@@ -1,5 +1,5 @@
 const siteCommandMap = {
-    'mail.google.com': [
+    'https://mail.google.com': [
         {
             text: "Numbered list",
             command: `keystroke "7" using {command down, shift down}`
