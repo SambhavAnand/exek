@@ -11,7 +11,7 @@ const script = `tell application "Google Chrome"
 				tell application "Google Chrome" to activate
 				set active tab index of w to i
                 set index of w to 1
-                tell application "System Events" to ${siteCommandMap['mail.google.com'][10].command}
+                tell application "System Events" to ${siteCommandMap['mail.google.com'][0].command}
                 return
 			end if
 			set i to i + 1
