@@ -1,10 +1,6 @@
 const siteCommandMap = {
     'https://mail.google.com': [
         {
-            text: "Numbered list",
-            command: `keystroke "7" using {command down, shift down}`
-        },
-        {
             text: "Previous message in an open conversation",
             command: `keystroke "p"`,
             shortcut: "n"
@@ -59,7 +55,87 @@ const siteCommandMap = {
             text: "Open spelling suggestions",
             command: `keystroke "m" using {command down}`,
             shortcut: "⌘ + m"
-        }
+        },
+        {
+            text:"Previous font",
+            command:`keystroke "5" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + 5"
+          },
+          {
+            text:"Next font",
+            command:`keystroke "6" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + 6"
+          },
+          {
+            text:"Decrease text size",
+            command:`keystroke "-" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + -"
+          },
+          {
+            text:"Increase text size",
+            command:`keystroke "+" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift and +"
+          },
+          {
+            text:"Bold",
+            command:`keystroke "b" using {command down}`,
+            shortcut:"⌘/Ctrl + b"
+          },
+          {
+            text:"Italics",
+            command:`keystroke "i" using {command down}`,
+            shortcut:"⌘/Ctrl + i"
+          },
+          {
+            text:"Underline",
+            command:`keystroke "u" using {command down}`,
+            shortcut:"⌘/Ctrl + u"
+          },
+          {
+            text:"Numbered list",
+            command:`keystroke "7" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + 7"
+          },
+          {
+            text:"Bulleted list",
+            command:`keystroke "8" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + 8"
+          },
+          {
+            text:"Quote",
+            command:`keystroke "9" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + 9"
+          },
+          {
+            text:"Indent less",
+            command:`keystroke "[" using {command down}`,
+            shortcut:"⌘/Ctrl + ["
+          },
+          {
+            text:"Indent more",
+            command:`keystroke "]" using {command down}`,
+            shortcut:"⌘/Ctrl + ]"
+          },
+          {
+            text:"Align left",
+            command:`keystroke "l" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + l"
+          },
+          {
+            text:"Align center",
+            command:`keystroke "e" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + e"
+          },
+          {
+            text:"Align right",
+            command:`keystroke "r" using {command down, shift down}`,
+            shortcut:"⌘/Ctrl + Shift + r"
+          },
+          {
+            text:"Remove formatting",
+            command:`keystroke "\" using {command down}`,
+            shortcut:"⌘/Ctrl + \\"
+          },
     ]
 }
 

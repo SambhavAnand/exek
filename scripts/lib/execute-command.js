@@ -1,5 +1,6 @@
 const applescript = require('applescript')
 
+const {siteCommandMap} = require('./mappings.js')
 const errors = require('../errors')
 
 function execChromeCommand (commandString) {
