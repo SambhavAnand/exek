@@ -1,6 +1,6 @@
 const applescript = require('applescript')
 
-const {siteCommandMap} = require('./mappings.js')
+const {chromeShortcuts} = require('../shortcuts/GoogleChrome.js')
 const errors = require('../errors')
 
 function execChromeCommand (commandString) {
@@ -24,6 +24,9 @@ function execChromeCommand (commandString) {
         })
     })
 }
+
+execChromeCommand(chromeShortcuts['appShortcuts'][0].command)
+
 
 module.exports = {
     execChromeCommand

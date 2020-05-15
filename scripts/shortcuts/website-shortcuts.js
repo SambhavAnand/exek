@@ -1,4 +1,4 @@
-const siteCommandMap = {
+const websiteShortcutMapping = {
     'https://mail.google.com': [
         {
             text: "Previous message in an open conversation",
@@ -140,5 +140,5 @@ const siteCommandMap = {
 }
 
 module.exports = {
-    siteCommandMap
+  websiteShortcutMapping
 }

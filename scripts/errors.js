@@ -3,8 +3,8 @@ module.exports = {
         msg: 'Something went wrong with applescript',
         type: 'APPLESCRIPT'
     }, 
-    'UNSUPPORTED_WEBSITE': {
-        msg:  'Website currently not supported',
-        type: 'UNSUPPORTED_WEBSITE'
+    'UNSUPPORTED_APP': {
+        msg:  'Applications currently not supported',
+        type: 'UNSUPPORTED_APP'
     }
 }
