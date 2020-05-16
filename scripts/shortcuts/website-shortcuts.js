@@ -136,6 +136,83 @@ const websiteShortcutMapping = {
             command:`keystroke "\" using {command down}`,
             shortcut:"⌘/Ctrl + \\"
           },
+    ],
+    'docs.google.com': [
+      {
+            text:"Copy",
+            command:`keystroke "c" using {command down}`,
+            shortcut: "⌘ + c",
+          },
+          {
+            text:"Cut",
+            command:`keystroke "x using {command down}"`,
+            shortcut:"⌘ + x",
+          },
+          {
+            text:"paste",
+            comamnd:`keystroke "v" using {command down}`,
+            shortcut:"⌘ + v",
+          },
+          {
+            text:"Paste without formatting",
+            command:`keystroke "v" using {command down, shift down}`,
+            shortcut:"⌘ + Shift + v",
+          },
+          {
+            text:"Undo",
+            command:`keystroke "z" using {command down}`,
+            shortcut:"⌘ + z",
+          },
+          {
+            text:"redo",
+            command:`keystroke "z" using {command down. shift down}`,
+            shortcut:"⌘ + Shift + z",
+          },
+          {
+            text:"Insert or edit link",
+            comamnd:`keystroke "k" using {command down}`,
+            shortcut:"⌘ + k",
+          },
+          {
+            text:"Show common keyboard shortcuts",
+            command:`keystroke "/" using {command down}`,
+            shortcut:"⌘ + /",
+          },
+          {
+            text:"Print",
+            command:`keystroke "p" using {command down}`,
+            shortcut:"⌘ + p",
+          },
+          {
+            text:"open",
+            command:`keystroke "o" using {command down}`,
+            shortcut:"⌘ + o",
+          },
+          {
+            text:"find",
+            command:`keyboard "f" using {comamnd down}`,
+            shortcut:"⌘ + f",
+          },
+          {
+            text:"Find and replace",
+            command:`keystroke "h" using {command down, shift down}`,
+            shortcut:"⌘ + Shift + h",
+          },
+          {
+            text:"Find again",
+            command:`keystroke "g" using {command down}`,
+            shortcut:"⌘ + g",
+          },
+          {
+            text:"Find previous",
+            command:`keystroke "g" using {command down, shift down}`,
+            shortcut:"⌘ + Shift + g",
+          },
+          {
+            text:"Insert page break",
+            command:`key code '36' using {command down}`,
+            shortcut:"⌘ + Enter",
+          }
     ]
 }
 

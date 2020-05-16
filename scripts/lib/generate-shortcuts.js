@@ -9,10 +9,14 @@ const appToShortcutGenerator = {
             applescript.execString(activeChromeQstr, function (err, url) {
                 let res = [...allShortcuts["Google Chrome"]['appShortcuts']]
                 Object.keys(allShortcuts["Google Chrome"]["inAppShortcuts"]).forEach(key => {
-                    if (url.includes(key))
-                        resolve(res.concat(allShortcuts["Google Chrome"]["inAppShortcuts"][key]))
+                    if (url.includes(key)) {
+                        let shortcutWithHeaders = {}
+                        shortcutWithHeaders[key] = allShortcuts["Google Chrome"]["inAppShortcuts"][key]
+                        shortcutWithHeaders["Google Chrome"] = res
+                        resolve(shortcutWithHeaders)
+                    }
                 })
-                resolve(res)
+                resolve({"Google Chrome": res})
             })
         })
         
