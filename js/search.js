@@ -1,5 +1,13 @@
+// const { ipcRenderer, remote, shell } = require("electron");
+
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list')
+
+
+// ipcRenderer.on("appShortcuts", (event, name) => {
+
+//   console.log(event, name)
+// })
 
 const websiteShortcutMapping = {
     'https://mail.google.com': [
