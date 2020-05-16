@@ -1,40 +1,30 @@
 const { app, BrowserWindow, globalShortcut, Menu, MenuItem } = require('electron')
 const { verify, generateShortcuts } = require('./scripts/lib')
-// const objc = require('objc')
 const { menubar } = require('menubar')
-
-// app.whenReady().then(() => {
-//     let win = new BrowserWindow({width:400, height:200});
-//     win.loadURL(`file://${__dirname}/index.html`)
-//     globalShortcut.register('CommandOrControl+ Shift + k', ()=> {
-//         win.show()
-//         // win.once('ready-to-show', () => {
-//         //     win.show()
-//         // })
-//     })
-    
-// }) 
 
 const mb = menubar({
     width: 300,
     height: 400,
     resizable: false,
     showDockIcon: false,
-    preloadWindow: true
+    preloadWindow: true,
+    browserWindow: {
+        webPreferences: {
+            nodeIntegration: true
+        }
+    }
 });
 function toggleWindow() {
     if (mb.window.isVisible()) {
         mb.hideWindow()
-        console.log("Hide window called")
     }
     else {
-        console.log("calld")
         mb.showWindow()
     }
 }
   
 mb.on("ready", function ready() {
-    mb.window.webContents.toggleDevTools();
+    // mb.window.webContents.toggleDevTools();
     globalShortcut.register(
         'CommandOrControl+ Shift + k',
         toggleWindow
@@ -42,7 +32,6 @@ mb.on("ready", function ready() {
 });
 
 mb.on('show', () => {
-    console.log("Show cxalled")
     mb.window.webContents.send("appShortcuts", "Google Chrome");
 })
 
