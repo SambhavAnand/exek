@@ -3,8 +3,8 @@ const { verify, generateShortcuts } = require('./scripts/lib')
 const { menubar } = require('menubar')
 
 const mb = menubar({
-    width: 300,
-    height: 400,
+    width: 500,
+    height: 800,
     resizable: false,
     showDockIcon: false,
     preloadWindow: true,
@@ -24,7 +24,7 @@ function toggleWindow() {
 }
   
 mb.on("ready", function ready() {
-    // mb.window.webContents.toggleDevTools();
+    mb.window.webContents.toggleDevTools();
     globalShortcut.register(
         'CommandOrControl+ Shift + k',
         toggleWindow
@@ -32,7 +32,9 @@ mb.on("ready", function ready() {
 });
 
 mb.on('show', () => {
-    mb.window.webContents.send("appShortcuts", "Google Chrome");
+    verify.isValidWindow()
+    .then(appName => mb.window.webContents.send("appShortcuts", appName))
+    .catch(error => mb.window.webContents.send("noAppShortcuts", error))
 })
 
 

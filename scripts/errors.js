@@ -4,7 +4,7 @@ module.exports = {
         type: 'APPLESCRIPT'
     }, 
     'UNSUPPORTED_APP': {
-        msg:  'Applications currently not supported',
+        msg:  'Application  currently not supported',
         type: 'UNSUPPORTED_APP'
     }
 }
