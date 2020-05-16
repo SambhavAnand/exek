@@ -141,6 +141,7 @@ const websiteShortcutMapping = {
           },
     ]
 }
+
 const gmailSC= websiteShortcutMapping['https://mail.google.com'];
 //search the shortcuts and filter it
 

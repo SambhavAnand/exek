@@ -20,6 +20,7 @@ function isValidWindow() {
     end tell`
     return new Promise(function (resolve, reject) {
         applescript.execString(activeWindowQstr, function (err, app) {
+            console.log(app)
             if (err)
                 reject(errors['APPLESCRIPT'])
             else if (app in allShortcuts)

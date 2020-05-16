@@ -25,9 +25,6 @@ function execChromeCommand (commandString) {
     })
 }
 
-execChromeCommand(chromeShortcuts['appShortcuts'][0].command)
-
-
 module.exports = {
     execChromeCommand
 }

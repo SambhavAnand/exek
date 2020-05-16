@@ -24,9 +24,8 @@ function generateShortcuts(appName) {
      * Generates shortcuts for an app. Assumes that the app has been verifies and is supported by our system
      * @param {appName} string
      */
-    const generator = appToShortcutGenerator[appToShortcutGenerator]
+    const generator = appToShortcutGenerator[appName]
     return generator()
 }
 
-generateShortcuts("Google Chrome")()
-.then(res=>console.log(res))
+module.exports = generateShortcuts
