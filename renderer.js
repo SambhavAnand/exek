@@ -23,7 +23,7 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
 ipcRenderer.on("noAppShortcuts", (event, error) => {
   const errorHtml = `
             <div class="card card-body mb-1">
-            <h4 class= "bar-text">${error.msg}</h4>
+            <li class= "bar-text">${error.msg}</li>
             </div>
         `
     matchList.innerHTML = errorHtml
@@ -36,9 +36,11 @@ const searchShortcuts = async searchText => {
 //Get Matches to ciurrent text input
     console.log(searchText)
     let matches = {}
+    console.log(currentShortcuts)
     Object.keys(currentShortcuts).forEach(header => {
       let filteredData = []
       let headerData = currentShortcuts[header]
+      console.log(headerData, header)
       filteredData = headerData.filter(state => {
         const regex = new RegExp(`${searchText}`, 'gi');
         return state.text.match(regex) || state.shortcut.match(regex); 
@@ -51,7 +53,7 @@ const searchShortcuts = async searchText => {
         //need to change this to include top 5/10 shortcuts
         matches = [];
     }
-   //outputHTML(matches);
+   outputHTML(matches);
 };
 
 const outputHTML = matches => {
@@ -76,12 +78,10 @@ const outputHTML = matches => {
         //else we can let it be where it is (on line 81 ) but will probably need to add a different styling to it
         matches[header].forEach(match => {
           html += `
-          <li class="card card-body mb-1">
+          <div class="card card-body mb-1">
           <h5>${header}</h5>
-          <h4 class="bar-text">${match.text} 
-            <h4 class="bar-shortcut">${match.shortcut} <span class="text-primary"></h4>
-          </h4>
-          </li>
+          <li class="bar-text">${match.text} ${match.shortcut} </li>
+          </div>
           `
         })
       })
@@ -99,3 +99,81 @@ const outputHTML = matches => {
     // }
 }
 search.addEventListener('input', ()=> searchShortcuts(search.value))
+
+
+//Arrow key functionality case event.which == 13 is when enter is pressed 
+
+var index = -1;
+var liSelected;
+
+document.addEventListener('keydown', function(event) {
+  var ul = document.getElementById('match-list');
+  var len = ul.getElementsByTagName('li').length-1;
+  console.log(len)
+  if(event.which === 40) {
+    index++;
+    console.log(index)
+  //down 
+  if (liSelected) {
+			removeClass(liSelected, 'selected');
+      next = ul.getElementsByTagName('li')[index];
+      console.log(next.classList)
+      if(typeof next !== undefined && index <= len) {
+                console.log('MADE IT HERE')
+                liSelected = next;
+            } else {
+                console.log('in the Sub Else')
+             	  index = 0;
+                liSelected = ul.getElementsByTagName('li')[0];
+            }
+            addClass(liSelected, 'selected');
+            console.log(index);
+    }
+    else {
+      index = 0;
+   	  liSelected = ul.getElementsByTagName('li')[0];
+			addClass(liSelected, 'selected');
+    }
+  }
+  //case when enter is hit - execute the Apple Script
+  else if (event.which === 38) {
+  //up
+    if (liSelected) {
+			removeClass(liSelected, 'selected');
+      index--;
+      console.log(index);
+      next = ul.getElementsByTagName('li')[index];
+      if(typeof next !== undefined && index >= 0) {
+                liSelected = next;
+            } else {
+            		index = len;
+                 liSelected = ul.getElementsByTagName('li')[len];
+            }
+            addClass(liSelected, 'selected');
+    }
+    else {
+      index = 0;
+   	  liSelected = ul.getElementsByTagName('li')[len];
+			addClass(liSelected, 'selected');
+    }
+  }
+}, false);
+
+function removeClass(el, className) {
+    if(el.classList) {
+        el.classList.remove(className);
+    } else {
+        el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+};
+
+function addClass(el, className) {
+    console.log("in the Add Class")
+    if(el.classList) {
+        el.classList.add(className);
+    } else {
+        el.className += ' ' + className;
+    }
+    console.log(el.className)
+
+};

@@ -35,10 +35,6 @@ const chromeShortcuts = {
             shortcut: "⌘ + Shift + t",
         },
         {
-            text: "Jump to the next open tab",
-            command: `keystroke "" using {command down}`
-        },
-        {
             text: "Jump to the last tab",
             command: `keystroke "9" using {command down}`,
             shortcut: "⌘ + 9",
