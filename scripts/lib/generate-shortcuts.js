@@ -20,7 +20,13 @@ const appToShortcutGenerator = {
                 resolve({"Google Chrome": res})
             })
         })
-        
+    },
+    "Microsoft Word": function() {
+        return new Promise(function (resolve) {
+            let res = {}
+            res["Microsoft Word"] = allShortcuts["Microsoft Word"].map(shortcut => ({...shortcut, app_name: "Microsoft Word"}))
+            resolve(res)
+        })
     }
 }
 

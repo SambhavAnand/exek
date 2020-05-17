@@ -12,6 +12,7 @@ var liSelected;
 ipcRenderer.on("initialize", (event) => {
   allShortcuts = [];
   index = -1;
+  search.value = ''
 })
 
 
@@ -150,7 +151,7 @@ document.addEventListener('keydown', function(event) {
                   liSelected = next;
               } else {
                   index = len;
-                  liSelected = ul.getElementsByTagName('li')[len];s
+                  liSelected = ul.getElementsByTagName('li')[len];
               }
               addClass(liSelected, 'selected');
       }

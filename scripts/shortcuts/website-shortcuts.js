@@ -164,7 +164,7 @@ const websiteShortcutMapping = {
             shortcut:"⌘ + z",
           },
           {
-            text:"redo",
+            text:"Redo",
             command:`keystroke "z" using {command down. shift down}`,
             shortcut:"⌘ + Shift + z",
           },
@@ -184,13 +184,13 @@ const websiteShortcutMapping = {
             shortcut:"⌘ + p",
           },
           {
-            text:"open",
+            text:"Open",
             command:`keystroke "o" using {command down}`,
             shortcut:"⌘ + o",
           },
           {
-            text:"find",
-            command:`keyboard "f" using {comamnd down}`,
+            text:"Find",
+            command:`keystroke "f" using {command down}`,
             shortcut:"⌘ + f",
           },
           {
@@ -213,6 +213,33 @@ const websiteShortcutMapping = {
             command:`key code '36' using {command down}`,
             shortcut:"⌘ + Enter",
           }
+    ],
+    'youtube.com': [
+      {
+        text: "Play/Pause",
+        command: `key code "49"`,
+        shortcut: "space"
+      },
+      {
+        text: "Seek forward 5 seconds",
+        command: `key code "124"`,
+        shortcut: "Right Arrow"
+      },
+      {
+        text: "Seek backward 5 seconds",
+        command: `key code "123"`,
+        shortcut: "Left Arrow"
+      },
+      {
+        text: "Seek forward 10 seconds",
+        command: `keystroke "j"`,
+        shortcut: "j"
+      },
+      {
+        text: "Seek forward 10 seconds",
+        command: `keystroke "l"`,
+        shortcut: "l"
+      }
     ]
 }
 
