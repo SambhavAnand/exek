@@ -48,9 +48,9 @@ const searchShortcuts = async searchText => {
     Object.keys(allShortcuts).forEach(header => {
       let filteredData = []
       let headerData = allShortcuts[header]
-      filteredData = headerData.filter(state => {
+      filteredData = headerData.filter(item => {
         const regex = new RegExp(`${searchText}`, 'gi');
-        return state.text.match(regex) || state.shortcut.match(regex); 
+        return item.text.match(regex) || item.shortcut.match(regex) || (item.tags?item.tags.match(regex):false )
       })
       if(filteredData.length !== 0)
         matches[header] = [...filteredData]
@@ -87,7 +87,7 @@ const outputHTML = matches => {
           <div class="card card-body mb-1">
           <li class="bar-text">
             <h5 class="app-name">${header}</h5>
-            <p>${match.text}${match.shortcut}</p>
+            <p>${match.text} ${match.shortcut}</p>
             <p class="shortcut-cmd">${match.command};${match.app_name}</p>
           </li>
           </div>

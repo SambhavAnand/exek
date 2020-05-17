@@ -26,6 +26,7 @@ const chromeShortcuts = {
       text: "Jump to the last tab",
       command: `keystroke "9" using {command down}`,
       shortcut: "⌘ + 9",
+      tags: "end,final"
     },
     {
       text: "Open the previous page in your browsing history for the current tab",
@@ -46,6 +47,7 @@ const chromeShortcuts = {
       text: "Close the current window",
       command: `keystroke "w" using {commad down, shift down}`,
       shortcut: "⌘ + Shift + w",
+      tags: "quit"
     },
     {
       text: "Minimize the window",
@@ -107,6 +109,11 @@ const chromeShortcuts = {
       command: `keystroke "m" using {command down, shift donw}`,
       shortcut: "⌘ + Shift + m",
     },
+    {
+        text: "Open file",
+        command: `keystroke "o" using {command down}`,
+        shortcut: "⌘ + o"
+    }
   ],
   inAppShortcuts: websiteShortcutMapping,
 };
