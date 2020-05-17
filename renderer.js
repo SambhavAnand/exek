@@ -85,7 +85,7 @@ const outputHTML = matches => {
           html += `
           <div class="card card-body mb-1">
           <h5>${header}</h5>
-          <li class="bar-text">${match.text} ${match.shortcut}</li>
+          <li class="bar-text">${match.text} ${match.shortcut} <p class="shortcut-cmd"> ${match.command}</p></li>
           </div>
           `
         })
@@ -105,11 +105,6 @@ search.addEventListener('input', ()=> searchShortcuts(search.value))
 
 //Arrow key functionality case event.which == 13 is when enter is pressed 
 
-<<<<<<< HEAD
-var liSelected;
-=======
->>>>>>> 374a271bd7e524aa65d5c7b4258c937bcd79fa40
-
 document.addEventListener('keydown', function(event) {
   var ul = document.getElementById('match-list');
   var len = ul.getElementsByTagName('li').length-1;
@@ -121,7 +116,6 @@ document.addEventListener('keydown', function(event) {
     if (liSelected) {
         removeClass(liSelected, 'selected');
         next = ul.getElementsByTagName('li')[index];
-        console.log(next.classList)
         if(typeof next !== undefined && index <= len) {
                   liSelected = next;
               } else {
@@ -139,6 +133,11 @@ document.addEventListener('keydown', function(event) {
       }
     }
     //case when enter is hit - execute the Apple Script
+    else if (event.which == 13){
+      if(liSelected){
+      console.log(liSelected.getElementsByTagName('p')[0].innerHTML);
+      }
+    }
     else if (event.which === 38) {
     //up
       if (liSelected) {

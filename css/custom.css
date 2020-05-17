@@ -11,3 +11,8 @@
     background: black;
     font-size: 17px;
 }
+
+.shortcut-cmd {
+    visibility: hidden;
+    font-size: 0px;
+}
