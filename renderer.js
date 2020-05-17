@@ -23,7 +23,7 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
 ipcRenderer.on("noAppShortcuts", (event, error) => {
   const errorHtml = `
             <div class="card card-body mb-1">
-            <h4>${error.msg}<span class="text-primary"></h4>
+            <h4 class= "bar-text">${error.msg}</h4>
             </div>
         `
     matchList.innerHTML = errorHtml
@@ -69,17 +69,19 @@ const outputHTML = matches => {
     let html = ''
     if(matchKeys.length > 0) {
       matchKeys.forEach(header => {
-        //One line 81 we are printing the header, (Google Chrome, docs.googel.com etc)
+        //On line 81 we are printing the header, (Google Chrome, docs.googel.com etc)
         //But it would be nice if we can create sections. like a google chrome header, then all the results for it
         //then a docs.google.com header and all results for it etc...
         //If we go with that then we'll need to print it all out before line 77 (matches[header].forEach)
         //else we can let it be where it is (on line 81 ) but will probably need to add a different styling to it
         matches[header].forEach(match => {
           html += `
-          <div class="card card-body mb-1">
+          <li class="card card-body mb-1">
           <h5>${header}</h5>
-          <h4>${match.text} (${match.shortcut}) <span class="text-primary"></h4>
-          </div>
+          <h4 class="bar-text">${match.text} 
+            <h4 class="bar-shortcut">${match.shortcut} <span class="text-primary"></h4>
+          </h4>
+          </li>
           `
         })
       })
@@ -90,7 +92,7 @@ const outputHTML = matches => {
     //     const html = matches.map(match => `
     //         <div class="card card-body mb-1">
     //         <h5> Chrome </h5>
-    //         <h4>${match.text} (${match.shortcut}) <span class="text-primary"></h4>
+    //         <h4>${match.text} (${match.shortcut}) </h4>
     //         </div>
     //     `).join('');
     //     matchList.innerHTML = html;
