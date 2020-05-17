@@ -7,11 +7,12 @@ const appToShortcutGenerator = {
         const activeChromeQstr = `tell application "Google Chrome" to return URL of active tab of front window`;
         return new Promise(function (resolve, reject) {
             applescript.execString(activeChromeQstr, function (err, url) {
-                let res = [...allShortcuts["Google Chrome"]['appShortcuts']]
+                let res = allShortcuts["Google Chrome"]['appShortcuts'].map(shortcut => ({...shortcut, app_name: "Google Chrome"}))
                 Object.keys(allShortcuts["Google Chrome"]["inAppShortcuts"]).forEach(key => {
                     if (url.includes(key)) {
                         let shortcutWithHeaders = {}
-                        shortcutWithHeaders[key] = allShortcuts["Google Chrome"]["inAppShortcuts"][key]
+                        shortcutWithHeaders[key] = allShortcuts["Google Chrome"]["inAppShortcuts"][key].map(
+                            shortcut => ({...shortcut, app_name: "Google Chrome"}))
                         shortcutWithHeaders["Google Chrome"] = res
                         resolve(shortcutWithHeaders)
                     }

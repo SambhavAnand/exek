@@ -1,5 +1,5 @@
 const websiteShortcutMapping = {
-    'https://mail.google.com': [
+    'mail.google.com': [
         {
             text: "Previous message in an open conversation",
             command: `keystroke "p"`,
@@ -145,7 +145,7 @@ const websiteShortcutMapping = {
           },
           {
             text:"Cut",
-            command:`keystroke "x using {command down}"`,
+            command:`keystroke "x using {command down}`,
             shortcut:"⌘ + x",
           },
           {
@@ -170,7 +170,7 @@ const websiteShortcutMapping = {
           },
           {
             text:"Insert or edit link",
-            comamnd:`keystroke "k" using {command down}`,
+            command:`keystroke "k" using {command down}`,
             shortcut:"⌘ + k",
           },
           {

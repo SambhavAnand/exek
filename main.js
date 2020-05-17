@@ -59,12 +59,3 @@ mb.app.on("will-quit", () => {
     mb.app.quit();
 });
 //on 'Enter' Hide window
-
-function sleep(callback) {
-    return new Promise(function (resolve, reject) {
-        setTimeout(()=>{
-            callback()
-            resolve()
-        }, 2000)
-    })
-}

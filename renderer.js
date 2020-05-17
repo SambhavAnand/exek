@@ -84,8 +84,11 @@ const outputHTML = matches => {
         matches[header].forEach(match => {
           html += `
           <div class="card card-body mb-1">
-          <h5>${header}</h5>
-          <li class="bar-text">${match.text} ${match.shortcut} <p class="shortcut-cmd"> ${match.command}</p></li>
+          <li class="bar-text">
+            <h5 class="app-name">${header}</h5>
+            <p>${match.text}${match.shortcut}</p>
+            <p class="shortcut-cmd">${match.command};${match.app_name}</p>
+          </li>
           </div>
           `
         })
@@ -111,7 +114,6 @@ document.addEventListener('keydown', function(event) {
   if(len >= 0){
     if(event.which === 40) {
       index++;
-      console.log(index)
     //down 
     if (liSelected) {
         removeClass(liSelected, 'selected');
@@ -119,23 +121,23 @@ document.addEventListener('keydown', function(event) {
         if(typeof next !== undefined && index <= len) {
                   liSelected = next;
               } else {
-                  console.log('in the Sub Else')
                   index = 0;
                   liSelected = ul.getElementsByTagName('li')[0];
               }
               addClass(liSelected, 'selected');
       }
       else {
-        console.log("EXCEEDED LENGTH")
         index = 0;
         liSelected = ul.getElementsByTagName('li')[0];
         addClass(liSelected, 'selected');
       }
     }
     //case when enter is hit - execute the Apple Script
-    else if (event.which == 13){
-      if(liSelected){
-      console.log(liSelected.getElementsByTagName('p')[0].innerHTML);
+    else if (event.which == 13) {
+      if(liSelected) {
+        const metadata = liSelected.getElementsByClassName('shortcut-cmd')[0].innerHTML
+        const [command, appName] = metadata.split(';')
+        execCommand.execCommand(appName, command)
       }
     }
     else if (event.which === 38) {
@@ -143,13 +145,12 @@ document.addEventListener('keydown', function(event) {
       if (liSelected) {
         removeClass(liSelected, 'selected');
         index--;
-        console.log(index);
         next = ul.getElementsByTagName('li')[index];
         if(typeof next !== undefined && index >= 0) {
                   liSelected = next;
               } else {
                   index = len;
-                  liSelected = ul.getElementsByTagName('li')[len];
+                  liSelected = ul.getElementsByTagName('li')[len];s
               }
               addClass(liSelected, 'selected');
       }
@@ -162,24 +163,18 @@ document.addEventListener('keydown', function(event) {
   }
 }, false);
 
-function removeClass(el, className) {
-    console.log('Inside the remove class');
-    
+function removeClass(el, className) {    
     if(el.classList) {
         el.classList.remove(className);
     } else {
-        console.log('Remove class l2');
         el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     }
 };
 
 function addClass(el, className) {
-    console.log("in the Add Class")
     if(el.classList) {
         el.classList.add(className);
     } else {
         el.className += ' ' + className;
     }
-    console.log(el.className)
-
 };
