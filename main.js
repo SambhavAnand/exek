@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, Menu, MenuItem } = require('electron')
+const { app, BrowserWindow, globalShortcut, Menu, MenuItem, ipcMain } = require('electron')
 const { verify, execCommand, generateShortcuts } = require('./scripts/lib')
 const {chromeShortcuts} = require('./scripts/shortcuts/GoogleChrome')
 const { menubar } = require('menubar')
@@ -33,14 +33,12 @@ mb.on("ready", function ready() {
 });
 
 mb.on('show', async () => {
+    
+    //Will Send a blocking message to the renderer channel
+    mb.window.webContents.send("initialize", null);
+    
     verify.isValidWindow()
-    .then(appName => { 
-        // generateShortcuts(appName)
-        // .then(async shortcuts => {
-        //     Object.keys(shortcuts).forEach(async shortcutType => {
-        //         await sleep(() => console.log(shortcuts[shortcutType]))
-        //     })
-        // })
+    .then(async appName => { 
         mb.window.webContents.send("appShortcuts", appName)
     })
     .catch(error => mb.window.webContents.send("noAppShortcuts", error))

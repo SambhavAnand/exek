@@ -5,7 +5,15 @@ const { generateShortcuts, execCommand } = require('./scripts/lib')
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list')
 
-let allShortcuts = [];
+let allShortcuts;
+var index;
+var liSelected;
+
+ipcRenderer.on("initialize", (event) => {
+  allShortcuts = [];
+  index = -1;
+})
+
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar
   search.focus()
@@ -75,7 +83,7 @@ const outputHTML = matches => {
           html += `
           <div class="card card-body mb-1">
           <h5>${header}</h5>
-          <li class="bar-text">${match.text} ${match.shortcut} </li>
+          <li class="bar-text">${match.text} ${match.shortcut}</li>
           </div>
           `
         })
@@ -95,8 +103,6 @@ search.addEventListener('input', ()=> searchShortcuts(search.value))
 
 //Arrow key functionality case event.which == 13 is when enter is pressed 
 
-var index = -1;
-var liSelected;
 
 document.addEventListener('keydown', function(event) {
   var ul = document.getElementById('match-list');
