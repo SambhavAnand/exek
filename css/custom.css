@@ -6,3 +6,8 @@
     font-size: 10px;
     color: yellow;
 }
+
+.selected {
+    background: black;
+    font-size: 17px;
+}

@@ -4,8 +4,9 @@ const { generateShortcuts, execCommand } = require('./scripts/lib')
 
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list')
-
+let index = -1;
 let allShortcuts = [];
+
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar
   search.focus()
@@ -22,7 +23,7 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
 ipcRenderer.on("noAppShortcuts", (event, error) => {
   const errorHtml = `
             <div class="card card-body mb-1">
-            <li class= "bar-text">${error.msg}</li>
+            <h5 class= "bar-text">${error.msg}</h5>
             </div>
         `
     matchList.innerHTML = errorHtml
@@ -32,6 +33,7 @@ ipcRenderer.on("noAppShortcuts", (event, error) => {
 //search the shortcuts and filter it
 
 const searchShortcuts = async searchText => {
+  index = -1;
 //Get Matches to ciurrent text input
     let matches = {}
     Object.keys(allShortcuts).forEach(header => {
@@ -95,66 +97,68 @@ search.addEventListener('input', ()=> searchShortcuts(search.value))
 
 //Arrow key functionality case event.which == 13 is when enter is pressed 
 
-var index = -1;
 var liSelected;
 
 document.addEventListener('keydown', function(event) {
   var ul = document.getElementById('match-list');
   var len = ul.getElementsByTagName('li').length-1;
-  console.log(len)
-  if(event.which === 40) {
-    index++;
-    console.log(index)
-  //down 
-  if (liSelected) {
-			removeClass(liSelected, 'selected');
-      next = ul.getElementsByTagName('li')[index];
-      console.log(next.classList)
-      if(typeof next !== undefined && index <= len) {
-                console.log('MADE IT HERE')
-                liSelected = next;
-            } else {
-                console.log('in the Sub Else')
-             	  index = 0;
-                liSelected = ul.getElementsByTagName('li')[0];
-            }
-            addClass(liSelected, 'selected');
-            console.log(index);
-    }
-    else {
-      index = 0;
-   	  liSelected = ul.getElementsByTagName('li')[0];
-			addClass(liSelected, 'selected');
-    }
-  }
-  //case when enter is hit - execute the Apple Script
-  else if (event.which === 38) {
-  //up
+  if(len >= 0){
+    if(event.which === 40) {
+      index++;
+      console.log(index)
+    //down 
     if (liSelected) {
-			removeClass(liSelected, 'selected');
-      index--;
-      console.log(index);
-      next = ul.getElementsByTagName('li')[index];
-      if(typeof next !== undefined && index >= 0) {
-                liSelected = next;
-            } else {
-            		index = len;
-                 liSelected = ul.getElementsByTagName('li')[len];
-            }
-            addClass(liSelected, 'selected');
+        removeClass(liSelected, 'selected');
+        next = ul.getElementsByTagName('li')[index];
+        console.log(next.classList)
+        if(typeof next !== undefined && index <= len) {
+                  liSelected = next;
+              } else {
+                  console.log('in the Sub Else')
+                  index = 0;
+                  liSelected = ul.getElementsByTagName('li')[0];
+              }
+              addClass(liSelected, 'selected');
+      }
+      else {
+        console.log("EXCEEDED LENGTH")
+        index = 0;
+        liSelected = ul.getElementsByTagName('li')[0];
+        addClass(liSelected, 'selected');
+      }
     }
-    else {
-      index = 0;
-   	  liSelected = ul.getElementsByTagName('li')[len];
-			addClass(liSelected, 'selected');
+    //case when enter is hit - execute the Apple Script
+    else if (event.which === 38) {
+    //up
+      if (liSelected) {
+        removeClass(liSelected, 'selected');
+        index--;
+        console.log(index);
+        next = ul.getElementsByTagName('li')[index];
+        if(typeof next !== undefined && index >= 0) {
+                  liSelected = next;
+              } else {
+                  index = len;
+                  liSelected = ul.getElementsByTagName('li')[len];
+              }
+              addClass(liSelected, 'selected');
+      }
+      else {
+        index = 0;
+        liSelected = ul.getElementsByTagName('li')[len];
+        addClass(liSelected, 'selected');
+      }
     }
   }
 }, false);
 
 function removeClass(el, className) {
+    console.log('Inside the remove class');
+    
     if(el.classList) {
         el.classList.remove(className);
     } else {
+        console.log('Remove class l2');
         el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     }
 };
