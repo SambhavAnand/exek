@@ -22,7 +22,7 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
 ipcRenderer.on("noAppShortcuts", (event, error) => {
   const errorHtml = `
             <div class="card card-body mb-1">
-            <h4>${error.msg}<span class="text-primary"></h4>
+            <li class= "bar-text">${error.msg}</li>
             </div>
         `
     matchList.innerHTML = errorHtml
@@ -33,13 +33,11 @@ ipcRenderer.on("noAppShortcuts", (event, error) => {
 
 const searchShortcuts = async searchText => {
 //Get Matches to ciurrent text input
-    console.log(searchText)
     let matches = {}
     Object.keys(allShortcuts).forEach(header => {
       let filteredData = []
       let headerData = allShortcuts[header]
       filteredData = headerData.filter(state => {
-        console.log(state)
         const regex = new RegExp(`${searchText}`, 'gi');
         return state.text.match(regex) || state.shortcut.match(regex); 
       })
@@ -68,7 +66,7 @@ const outputHTML = matches => {
     let html = ''
     if(matchKeys.length > 0) {
       matchKeys.forEach(header => {
-        //One line 81 we are printing the header, (Google Chrome, docs.googel.com etc)
+        //On line 81 we are printing the header, (Google Chrome, docs.googel.com etc)
         //But it would be nice if we can create sections. like a google chrome header, then all the results for it
         //then a docs.google.com header and all results for it etc...
         //If we go with that then we'll need to print it all out before line 77 (matches[header].forEach)
@@ -77,22 +75,97 @@ const outputHTML = matches => {
           html += `
           <div class="card card-body mb-1">
           <h5>${header}</h5>
-          <h4>${match.text} (${match.shortcut}) <span class="text-primary"></h4>
+          <li class="bar-text">${match.text} ${match.shortcut} </li>
           </div>
           `
         })
       })
-      matchList.innerHTML = html
     }
-
-    // if(matches.length > 0){
-    //     const html = matches.map(match => `
-    //         <div class="card card-body mb-1">
-    //         <h5> Chrome </h5>
-    //         <h4>${match.text} (${match.shortcut}) <span class="text-primary"></h4>
-    //         </div>
-    //     `).join('');
-    //     matchList.innerHTML = html;
-    // }
+    else {
+      html = `
+        <div class="card card-body mb-1">
+        <h5>No shortcuts match your search</h5>
+        </div>
+      `
+    }
+    matchList.innerHTML = html
 }
 search.addEventListener('input', ()=> searchShortcuts(search.value))
+
+
+//Arrow key functionality case event.which == 13 is when enter is pressed 
+
+var index = -1;
+var liSelected;
+
+document.addEventListener('keydown', function(event) {
+  var ul = document.getElementById('match-list');
+  var len = ul.getElementsByTagName('li').length-1;
+  console.log(len)
+  if(event.which === 40) {
+    index++;
+    console.log(index)
+  //down 
+  if (liSelected) {
+			removeClass(liSelected, 'selected');
+      next = ul.getElementsByTagName('li')[index];
+      console.log(next.classList)
+      if(typeof next !== undefined && index <= len) {
+                console.log('MADE IT HERE')
+                liSelected = next;
+            } else {
+                console.log('in the Sub Else')
+             	  index = 0;
+                liSelected = ul.getElementsByTagName('li')[0];
+            }
+            addClass(liSelected, 'selected');
+            console.log(index);
+    }
+    else {
+      index = 0;
+   	  liSelected = ul.getElementsByTagName('li')[0];
+			addClass(liSelected, 'selected');
+    }
+  }
+  //case when enter is hit - execute the Apple Script
+  else if (event.which === 38) {
+  //up
+    if (liSelected) {
+			removeClass(liSelected, 'selected');
+      index--;
+      console.log(index);
+      next = ul.getElementsByTagName('li')[index];
+      if(typeof next !== undefined && index >= 0) {
+                liSelected = next;
+            } else {
+            		index = len;
+                 liSelected = ul.getElementsByTagName('li')[len];
+            }
+            addClass(liSelected, 'selected');
+    }
+    else {
+      index = 0;
+   	  liSelected = ul.getElementsByTagName('li')[len];
+			addClass(liSelected, 'selected');
+    }
+  }
+}, false);
+
+function removeClass(el, className) {
+    if(el.classList) {
+        el.classList.remove(className);
+    } else {
+        el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
+    }
+};
+
+function addClass(el, className) {
+    console.log("in the Add Class")
+    if(el.classList) {
+        el.classList.add(className);
+    } else {
+        el.className += ' ' + className;
+    }
+    console.log(el.className)
+
+};
