@@ -5,8 +5,7 @@ const { generateShortcuts, execCommand } = require('./scripts/lib')
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list')
 
-let currentShortcuts = [];
-
+let allShortcuts = [];
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar
   search.focus()
@@ -14,7 +13,7 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
   .then(shortcuts => {
     //initial render here
     outputHTML(shortcuts)
-    currentShortcuts = shortcuts;
+    allShortcuts = Object.assign({}, shortcuts);
   })
 })
 
@@ -36,22 +35,22 @@ const searchShortcuts = async searchText => {
 //Get Matches to ciurrent text input
     console.log(searchText)
     let matches = {}
-    Object.keys(currentShortcuts).forEach(header => {
+    Object.keys(allShortcuts).forEach(header => {
       let filteredData = []
-      let headerData = currentShortcuts[header]
+      let headerData = allShortcuts[header]
       filteredData = headerData.filter(state => {
+        console.log(state)
         const regex = new RegExp(`${searchText}`, 'gi');
         return state.text.match(regex) || state.shortcut.match(regex); 
       })
       if(filteredData.length !== 0)
         matches[header] = [...filteredData]
     })
-    console.log(matches)
     if(searchText.length === 0){
         //need to change this to include top 5/10 shortcuts
-        matches = [];
+        matches = Object.assign({}, allShortcuts);
     }
-   //outputHTML(matches);
+   outputHTML(matches);
 };
 
 const outputHTML = matches => {

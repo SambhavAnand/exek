@@ -1,5 +1,6 @@
 const { app, BrowserWindow, globalShortcut, Menu, MenuItem } = require('electron')
-const { verify, generateShortcuts } = require('./scripts/lib')
+const { verify, execCommand, generateShortcuts } = require('./scripts/lib')
+const {chromeShortcuts} = require('./scripts/shortcuts/GoogleChrome')
 const { menubar } = require('menubar')
 
 const mb = menubar({
@@ -31,10 +32,19 @@ mb.on("ready", function ready() {
     );
 });
 
-mb.on('show', () => {
+mb.on('show', async () => {
     verify.isValidWindow()
-    .then(appName => mb.window.webContents.send("appShortcuts", appName))
+    .then(appName => { 
+        // generateShortcuts(appName)
+        // .then(async shortcuts => {
+        //     Object.keys(shortcuts).forEach(async shortcutType => {
+        //         await sleep(() => console.log(shortcuts[shortcutType]))
+        //     })
+        // })
+        mb.window.webContents.send("appShortcuts", appName)
+    })
     .catch(error => mb.window.webContents.send("noAppShortcuts", error))
+
 })
 
 mb.on("hide", () => {
@@ -51,3 +61,12 @@ mb.app.on("will-quit", () => {
     mb.app.quit();
 });
 //on 'Enter' Hide window
+
+function sleep(callback) {
+    return new Promise(function (resolve, reject) {
+        setTimeout(()=>{
+            callback()
+            resolve()
+        }, 2000)
+    })
+}

@@ -1,6 +1,5 @@
 const applescript = require('applescript')
 
-const {chromeShortcuts} = require('../shortcuts/GoogleChrome.js')
 const errors = require('../errors')
 
 function execChromeCommand (commandString) {
