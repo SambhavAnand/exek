@@ -4,10 +4,6 @@ const { generateShortcuts, execCommand } = require('./scripts/lib')
 
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list')
-<<<<<<< HEAD
-let index = -1;
-let allShortcuts = [];
-=======
 
 let allShortcuts;
 var index;
@@ -17,7 +13,7 @@ ipcRenderer.on("initialize", (event) => {
   allShortcuts = [];
   index = -1;
 })
->>>>>>> 374a271bd7e524aa65d5c7b4258c937bcd79fa40
+
 
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar
