@@ -37,10 +37,14 @@ mb.on('show', () => {
     .catch(error => mb.window.webContents.send("noAppShortcuts", error))
 })
 
-
 mb.on("hide", () => {
     Menu.sendActionToFirstResponder("hide:");
 });
+
+mb.on('after-show', () => {
+    //Seems to be a bug in the menubar project as the bool value isn't set to true upon a call of showWindow
+    mb._isVisible = true;
+})
   
 mb.app.on("will-quit", () => {
     globalShortcut.unregisterAll();
