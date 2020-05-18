@@ -15,6 +15,7 @@ function execCommand(appName, commandString) {
         end tell
         end tell`
         return new Promise(function (resolve, reject) {
+            console.log(chromeScript)
             applescript.execString(chromeScript, function (err) {
                 if(err) {
                     console.log(err)

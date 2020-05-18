@@ -3,11 +3,10 @@ const websiteShortcutMapping = {
       text: "Previous message in an open conversation",
       command: `keystroke "p"`,
       shortcut: "p",
-      tags: ""
     },
     {
       text: "Next message in an open conversation ",
-      command: `keystroke "n"`,
+      command: `keystroke "n"`,
       shortcut: "n"
     },
     {
@@ -465,7 +464,131 @@ const websiteShortcutMapping = {
       keystroke "f" using {command down, control down}`,
       //command: `keystroke "e" keystroke "f" using {command down, control down}`,
       shortcut: "Ctrl + ⌘ + e + f"
-    }
+    },
+    {
+      text: "Move to next footnote",
+      command: `keystroke "n" using {command down, control down}
+      keystroke "f" using {command down, control down}`,
+      shortcut: "Ctrl + ⌘ + n + f"
+    },
+    {
+      text: "Move to previous footnote",
+      command: `keystroke "p" using {command down, control down}
+      keystroke "f" using {command down, control down}`,
+      shortcut: "Ctrl + ⌘ + p + f"
+    },
+    //Menu Shortcuts
+    {
+      text: "Context (right-click) menu",
+      command: `key code "42" using {shift down, command down}`,
+      shortcut: "⌘ + Shift + \\"
+    },
+    {
+      text: "File Menu",
+      command: `keystroke "f" using {control down, option down}`,
+      shortcut: "Ctrl + Option + f"
+    },
+    {
+      text: "Edit Menu",
+      command: `keystroke "e" using {control down, option down}`,
+      shortcut: "Ctrl + Option + e"
+    },
+    {
+      text: "View Menu",
+      command: `keystroke "v" using {control down, option down}`,
+      shortcut: "Ctrl + Option + v"
+    },
+    {
+      text: "Insert Menu",
+      command: `keystroke "i" using {control down, option down}`,
+      shortcut: "Ctrl + Option + i"
+    },
+    {
+      text: "Format Menu",
+      command: `keystroke "o" using {control down, option down}`,
+      shortcut: "Ctrl + Option + o"
+    },
+    {
+      text: "Tools Menu",
+      command: `keystroke "t" using {control down, option down}`,
+      shortcut: "Ctrl + Option + t"
+    },
+    {
+      text: "Help Menu",
+      command: `keystroke "h" using {control down, option down}`,
+      shortcut: "Ctrl + Option + h"
+    },
+    //Text Selection With Keyboard Options
+    {
+      text: "Select all",
+      command: `keystroke "a" using {command down}`,
+      shortcut: "⌘ + a"
+    },
+    {
+      text: "Extend selection one character",
+      command: `key code "124" using {shift down}`,
+      shortcut: "Shift + right arrow",
+      tags: "increase"
+    },
+    {
+      text: "Decrease selection one character",
+      command: `key code "123" using {shift down}`,
+      shortcut: "Shift + left arrow"
+    },
+    {
+      text: "Extend selection one line",
+      command: `key code "125" using {shift down}`,
+      shortcut: "Shift + down arrow",
+      tags: "increase"
+    },
+    {
+      text: "Decrease selection one line",
+      command: `key code "126" using {shift down}`,
+      shortcut: "Shift + up arrow"
+    },
+    {
+      text: "Extend selection one paragraph down",
+      command: `key code "125" using {option down, shift down}`,
+      shortcut: "Option + Shift + down arrow"
+    },
+    {
+      text: "Extend selection one paragraph up",
+      command: `key code "126" using {option down, shift down}`,
+      shortcut: "Option + Shift + up arrow"
+    },
+    {
+      text: "Extend selection to the beginning of the line",
+      command: `key code "123" using {shift down, control down}`,
+      shortcut: "Shift + Fn + left arrow"
+    },
+    {
+      text: "Extend selection to the end of the line",
+      command: `key code "124" using {shift down, control down}`,
+      shortcut: "Shift + Fn + right arrow"
+    },
+    {
+      text: "Extend selection to the beginning of the document",
+      command: `key code "126" using {shift down, command down}`,
+      shortcut: "⌘ + Shift + up arrow"
+    },
+    {
+      text: "Extend selection to the end of the document",
+      command: `key code "125" using {shift down, command down}`,
+      shortcut: "⌘ + Shift + down arrow"
+    },
+    {
+      text: "Select current list item",
+      command: `keystroke "e" using {control down, shift down, command down}
+      keystroke "i" using {control down, shift down, command down}`,
+      shortcut: "Ctrl + ⌘ + Shift + e + i"
+    },
+    {
+      text: "Select all list items at the current level",
+      command: `keystroke "e" using {control down, shift down, command down}
+      keystroke "o" using {control down, shift down, command down}`,
+      shortcut: "Ctrl + ⌘ + Shift + e + o"
+    },
+    //The following are all for document outline
   ],
   'youtube.com': [
     {
