@@ -84,13 +84,14 @@ const outputHTML = matches => {
         //else we can let it be where it is (on line 81 ) but will probably need to add a different styling to it
         matches[header].forEach(match => {
           html += `
-          <div class="card card-body mb-1">
-          <li class="bar-text">
-            <h5 class="app-name">${header}</h5>
-            <p>${match.text} ${match.shortcut}</p>
-            <p class="shortcut-cmd">${match.command};${match.app_name}</p>
-          </li>
-          </div>
+            <ul class="bar-text">
+              <div class="shortcut-container">
+                <p class="shortcut-description">${match.text}</p>
+                <p class="shortcut">${match.shortcut}</p> 
+              </div>
+              <p class="app-name">${header}</p>
+              <p class="shortcut-cmd">${match.command};${match.app_name}</p>
+            </ul>
           `
         })
       })
@@ -111,25 +112,25 @@ search.addEventListener('input', ()=> searchShortcuts(search.value))
 
 document.addEventListener('keydown', function(event) {
   var ul = document.getElementById('match-list');
-  var len = ul.getElementsByTagName('li').length-1;
+  var len = ul.getElementsByTagName('ul').length-1;
   if(len >= 0){
     if(event.which === 40) {
       index++;
     //down 
     if (liSelected) {
         removeClass(liSelected, 'selected');
-        next = ul.getElementsByTagName('li')[index];
+        next = ul.getElementsByTagName('ul')[index];
         if(typeof next !== undefined && index <= len) {
                   liSelected = next;
               } else {
                   index = 0;
-                  liSelected = ul.getElementsByTagName('li')[0];
+                  liSelected = ul.getElementsByTagName('ul')[0];
               }
               addClass(liSelected, 'selected');
       }
       else {
         index = 0;
-        liSelected = ul.getElementsByTagName('li')[0];
+        liSelected = ul.getElementsByTagName('ul')[0];
         addClass(liSelected, 'selected');
       }
     }
@@ -146,18 +147,21 @@ document.addEventListener('keydown', function(event) {
       if (liSelected) {
         removeClass(liSelected, 'selected');
         index--;
-        next = ul.getElementsByTagName('li')[index];
+        next = ul.getElementsByTagName('ul')[index];
         if(typeof next !== undefined && index >= 0) {
                   liSelected = next;
               } else {
                   index = len;
-                  liSelected = ul.getElementsByTagName('li')[len];
+                  liSelected = ul.getElementsByTagName('ul')[len];
               }
               addClass(liSelected, 'selected');
       }
+      else if(index < -1){
+        index = 0;
+      }
       else {
         index = 0;
-        liSelected = ul.getElementsByTagName('li')[len];
+        liSelected = ul.getElementsByTagName('ul')[len];
         addClass(liSelected, 'selected');
       }
     }

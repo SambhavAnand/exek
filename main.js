@@ -15,6 +15,7 @@ const mb = menubar({
         }
     }
 });
+
 function toggleWindow() {
     if (mb.window.isVisible()) {
         mb.hideWindow()
@@ -25,7 +26,7 @@ function toggleWindow() {
 }
   
 mb.on("ready", function ready() {
-    // mb.window.webContents.toggleDevTools();
+    //mb.window.webContents.toggleDevTools();
     globalShortcut.register(
         'CommandOrControl+ Shift + k',
         toggleWindow
