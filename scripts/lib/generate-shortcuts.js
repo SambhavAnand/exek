@@ -41,13 +41,4 @@ function generateShortcuts(appName) {
         })
 }
 
-// function generateShortcuts(appName) {
-//     /**
-//      * Generates shortcuts for an app. Assumes that the app has been verifies and is supported by our system
-//      * @param {appName} string
-//      */
-//     const generator = appToShortcutGenerator[appName]
-//     return generator()
-// }
-
 module.exports = generateShortcuts
