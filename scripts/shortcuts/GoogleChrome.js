@@ -1,8 +1,7 @@
 const { websiteShortcutMapping } = require("./website-shortcuts");
 
 const chromeShortcuts = {
-  appShortcuts: [
-    {
+  appShortcuts: [{
       text: "Open a new window",
       command: `keystroke "n" using {command down}`,
       shortcut: "⌘ + n",
@@ -110,13 +109,49 @@ const chromeShortcuts = {
       shortcut: "⌘ + Shift + m",
     },
     {
-        text: "Open file",
-        command: `keystroke "o" using {command down}`,
-        shortcut: "⌘ + o"
+      text: "Open file",
+      command: `keystroke "o" using {command down}`,
+      shortcut: "⌘ + o"
+    },
+    {
+      text: "Jump to the address bar",
+      command: `keystroke "l" using {command down}`,
+      shortcut: "⌘ + l",
+    },
+    {
+      text: "Open options to print the current page",
+      command: `keystroke "p" using {command down}`,
+      shortcut: "⌘ + p",
+    },
+    {
+      text: "Open options to save the current page",
+      command: `keystroke "s" using {command down}`,
+      shortcut: "⌘ + s",
+    },
+    {
+      text: "Reload your current page, ignoring cached content",
+      command: `keystroke "r" using {command down, shift down}`,
+      shortcut: "⌘ + Shift + r",
+    },
+    {
+      text: "Save your current webpage as a bookmark",
+      command: `keystroke "d" using {command down}`,
+      shortcut: "⌘ + d",
+    },
+    {
+      text: "Save all open tabs as bookmarks in a new folder",
+      command: `keystroke "d" using {command down, shift down}`,
+      shortcut: "⌘ + Shift + d",
+    },
+    {
+      text: "Return everything on the page to the default size",
+      command: `keystroke "0" using {command down}`,
+      shortcut: "⌘ + 0",
     }
   ],
   inAppShortcuts: websiteShortcutMapping,
 };
+
 
 module.exports = {
   chromeShortcuts,
