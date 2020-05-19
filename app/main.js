@@ -1,4 +1,4 @@
-const { app, BrowserWindow, globalShortcut, Menu, MenuItem, ipcMain, screen } = require('electron')
+const { app, BrowserWindow, globalShortcut, Menu, Tray, ipcMain, screen } = require('electron')
 
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
@@ -11,24 +11,6 @@ const {ShortcutsStore} = require('./scripts/util')
 //Local Shortcut store
 const store = new ShortcutsStore()
 
-const mb = menubar({
-    width: 500,
-    height: 800,
-    resizable: false,
-    showDockIcon: false,
-    preloadWindow: true,
-    browserWindow: {
-        webPreferences: {
-            nodeIntegration: true
-        }
-    }
-});
-
-mb.on("ready", function ready() {
-    // mb.window.webContents.toggleDevTools();
-
-});
-
 let win; 
 function toggleWindow() {
     if (win.isVisible()) {
@@ -40,11 +22,11 @@ function toggleWindow() {
 }
 
 
-app.on("ready", function bar_read() {
+app.on("ready", () => {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize
     win = new BrowserWindow({ 
-        width: 600, 
-        height: 300,
+        width: .3*width, 
+        height: .4*height,
         frame:false, 
         transparent: true,
         webPreferences:{
@@ -56,7 +38,7 @@ app.on("ready", function bar_read() {
     win.loadURL(`file://${__dirname}/index.html`)
     
     // win.webContents.toggleDevTools()
-    win.on('ready-to-show', ()=> {
+    win.on('ready-to-show', () => {
         store.getShortcuts()
         .then(data => win.webContents.send('updateData', data))
         .catch(error => console.log(error))
@@ -68,6 +50,27 @@ app.on("ready", function bar_read() {
             console.log('registration failed')
           }  
     });
+    const tray = new Tray('./iconTemplate.png');
+    const contextMenu = Menu.buildFromTemplate([
+        {
+            label: "Show/Hide Search Bar",
+            click: () => {
+                win.show()
+            }
+        },
+        {
+            label: "Quit", click: ()=> {
+                app.quit()
+            }
+        }
+    ]);
+    tray.setContextMenu(contextMenu);
+
+    const mb = menubar({
+        tray,
+        showOnRightClick: true
+    });
+
 });
 
 store.on('newDataAvailable', (newData) => {
@@ -85,32 +88,11 @@ app.on('browser-window-focus', () => {
     .catch(error => win.webContents.send("error", error))
 });
 
+//Required to hide the search bar when a click outside the bar is made
+app.on('browser-window-blur', () => {
+    win.hide()
+});
+
 app.on("will-quit", () => {
     globalShortcut.unregisterAll();
 });
-
-mb.on('show', async () => {
-    //Will Send a blocking message to the renderer channel
-    mb.window.webContents.send("initialize", null);
-    verify.isValidWindow()
-    .then(async appName => { 
-        mb.window.webContents.send("appShortcuts", appName)
-    })
-    .catch(error => mb.window.webContents.send("error", error))
-
-})
-
-mb.on("hide", () => {
-    Menu.sendActionToFirstResponder("hide:");
-});
-
-mb.on('after-show', () => {
-    //Seems to be a bug in the menubar project as the bool value isn't set to true upon a call of showWindow
-    mb._isVisible = true;
-})
-  
-mb.app.on("will-quit", () => {
-    globalShortcut.unregisterAll();
-    mb.app.quit();
-});
-//on 'Enter' Hide window
