@@ -38,6 +38,8 @@ function generateUpdates(lastUpdateTime) {
     })
 }
 
+// buildLevelDbStore().then(()=>db.get('lastUpdated')).then(data => console.log(data))
+
 module.exports = {
     generateUpdates, 
     buildLevelDbStore

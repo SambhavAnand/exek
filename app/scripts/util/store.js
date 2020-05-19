@@ -1,5 +1,6 @@
 const path = require('path')
 const fs = require('fs')
+const { EventEmitter } = require('events')
 
 const moment = require('moment')
 const { app, remote } = require('electron')
@@ -15,14 +16,17 @@ function writeToFileAsync(filePath, data) {
     })
 }
 
-class ShortcutsStore {
+class ShortcutsStore extends EventEmitter{
     constructor(options) {
+        super(options)
         const userDataPath = (app.getPath('userData') || remote.getPath('userData'))
         this.filePath = path.join(userDataPath, 'shortcuts.json')
         this.options = options
     }
-    getShortcuts() {
+    getShortcuts = () => {
         const filePath = this.filePath
+        const emit = this.emit.bind(this);
+
         return new Promise(function (resolve, reject) {
             fs.access(filePath, fs.F_OK, function(err) {
                 //File does not exist
@@ -54,6 +58,7 @@ class ShortcutsStore {
                         if(serverData['type'] === 'NEW_DATA_AVAILABLE') {
                             console.log(serverData['type'], "Updating local file store")
                             const fileData = {allShortcuts: serverData['shortcuts'], lastUpdatedTime: serverData['newUpdatedTime']}
+                            emit("newDataAvailable", fileData['allShortcuts'])
                             writeToFileAsync(filePath, fileData)
                         }
                     })

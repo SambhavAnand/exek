@@ -16,7 +16,7 @@ ipcRenderer.on("initialize", (event) => {
   search.value = ''
 })
 
-ipcRenderer.on("checkForUpdates", (event, shortcuts) => {
+ipcRenderer.on("updateData", (event, shortcuts) => {
   allShortcuts = Object.assign({}, shortcuts)
 })
 
@@ -54,7 +54,7 @@ const searchShortcuts = async searchText => {
       let headerData = currentAppShorcuts[header]
       filteredData = headerData.filter(item => {
         const regex = new RegExp(`${searchText}`, 'gi');
-        return item.text.match(regex) || item.shortcut.match(regex) || (item.tags?item.tags.match(regex):false )
+        return item.text.match(regex) || item.shortcut.match(regex) || (item.tags?item.tags.match(regex):false ) || header.match(regex)
       })
       if(filteredData.length !== 0)
         matches[header] = [...filteredData]

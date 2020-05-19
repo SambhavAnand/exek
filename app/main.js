@@ -39,6 +39,7 @@ function toggleWindow() {
     }
 }
 
+
 app.on("ready", function bar_read() {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize
     win = new BrowserWindow({ 
@@ -54,20 +55,26 @@ app.on("ready", function bar_read() {
     
     win.loadURL(`file://${__dirname}/index.html`)
     
-    win.webContents.toggleDevTools()
+    // win.webContents.toggleDevTools()
     win.on('ready-to-show', ()=> {
         store.getShortcuts()
-        .then(data => win.webContents.send('checkForUpdates', data))
+        .then(data => win.webContents.send('updateData', data))
         .catch(error => console.log(error))
     })
 
-    const ret = globalShortcut.register('Escape+;', () => {
+    const ret = globalShortcut.register('Ctrl+k', () => {
         toggleWindow()
         if (!ret) {
             console.log('registration failed')
           }  
     });
 });
+
+store.on('newDataAvailable', (newData) => {
+    //New Data is available
+    if(win)
+        win.webContents.send('updateData', newData)
+})
 
 app.on('browser-window-focus', () => {
     win.webContents.send("initialize", null);
