@@ -2,7 +2,6 @@ const { app, BrowserWindow, globalShortcut, Menu, Tray, ipcMain, screen } = requ
 
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
-const fetch = require('electron-fetch').default
 
 const {ShortcutsStore} = require('./scripts/util')
 
@@ -55,7 +54,7 @@ app.on("ready", () => {
         {
             label: "Show/Hide Search Bar",
             click: () => {
-                win.show()
+                toggleWindow()
             }
         },
         {
@@ -65,11 +64,11 @@ app.on("ready", () => {
         }
     ]);
     tray.setContextMenu(contextMenu);
-
+    tray.on('click', () => console.log("clicked"))
     const mb = menubar({
         tray,
-        showOnRightClick: true
     });
+    
 
 });
 
