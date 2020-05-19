@@ -16,7 +16,6 @@ function isValidWindow() {
             else if (app in allShortcuts)
                 resolve(app)
             else {
-                console.log(app)
                 reject(errors['UNSUPPORTED_APP'])
             }
         })

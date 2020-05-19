@@ -15,6 +15,10 @@ ipcRenderer.on("initialize", (event) => {
   search.value = ''
 })
 
+ipcRenderer.on("initShortcuts", (event) => {
+  console.log("this hapened")
+})
+
 
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar

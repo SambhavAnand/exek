@@ -18,14 +18,6 @@ const mb = menubar({
     }
 });
 
-function toggleWindow() {
-    if (mb.window.isVisible()) {
-        mb.hideWindow()
-    }
-    else {
-        mb.showWindow()
-    }
-}
 
 mb.on("ready", function ready() {
     // mb.window.webContents.toggleDevTools();
@@ -33,6 +25,14 @@ mb.on("ready", function ready() {
 });
 
 let win; 
+function toggleWindow() {
+    if (win.isVisible()) {
+        win.hide()
+    }
+    else {
+        win.show()
+    }
+}
 
 app.on("ready", function bar_read() {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize
@@ -43,12 +43,16 @@ app.on("ready", function bar_read() {
         transparent: true,
         webPreferences:{
             nodeIntegration: true
-        }
+        },
+        show: false
     });
     win.loadURL(`file://${__dirname}/index.html`)
+    win.webContents.toggleDevTools()
+    win.on('ready-to-show', ()=>{
+        win.webContents.send('initShortcuts', null)
+    })
     const ret = globalShortcut.register('Escape+;', () => {
-        win.show()
-        console.log('Shortcut executed')
+        toggleWindow()
         if (!ret) {
             console.log('registration failed')
           }  
