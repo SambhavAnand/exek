@@ -17,10 +17,8 @@ ipcRenderer.on("initialize", (event) => {
 })
 
 ipcRenderer.on("checkForUpdates", (event, shortcuts) => {
-  console.log(shortcuts)
   allShortcuts = Object.assign({}, shortcuts)
 })
-
 
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar
