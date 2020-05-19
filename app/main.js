@@ -1,7 +1,9 @@
-const { app, BrowserWindow, globalShortcut, Menu, MenuItem, ipcMain } = require('electron')
+const { app, BrowserWindow, globalShortcut, Menu, MenuItem, ipcMain, screen } = require('electron')
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
 const fetch = require('electron-fetch').default
+
+//write function with min/max limits so that the size of the window is always resonable
 
 const mb = menubar({
     width: 500,
@@ -27,17 +29,48 @@ function toggleWindow() {
 
 mb.on("ready", function ready() {
     // mb.window.webContents.toggleDevTools();
-    globalShortcut.register(
-        'CommandOrControl+ Shift + k',
-        toggleWindow
-    );
+
+});
+
+let win; 
+
+app.on("ready", function bar_read() {
+    const { width, height } = screen.getPrimaryDisplay().workAreaSize
+    win = new BrowserWindow({ 
+        width: 500, 
+        height: 300,
+        frame:false, 
+        transparent: true,
+        webPreferences:{
+            nodeIntegration: true
+        }
+    });
+    win.loadURL(`file://${__dirname}/index.html`)
+    const ret = globalShortcut.register('Escape+;', () => {
+        win.show()
+        console.log('Shortcut executed')
+        if (!ret) {
+            console.log('registration failed')
+          }  
+    });
+});
+
+app.on('browser-window-focus', () => {
+    win.webContents.send("initialize", null);
+    verify.isValidWindow()
+    .then(async appName => { 
+        win.webContents.send("appShortcuts", appName)
+    })
+    .catch(error => win.webContents.send("error", error))
+});
+
+app.on("will-quit", () => {
+    globalShortcut.unregisterAll();
 });
 
 mb.on('show', async () => {
-    
     //Will Send a blocking message to the renderer channel
     mb.window.webContents.send("initialize", null);
-    
     verify.isValidWindow()
     .then(async appName => { 
         mb.window.webContents.send("appShortcuts", appName)
