@@ -26,11 +26,7 @@ function toggleWindow() {
 }
   
 mb.on("ready", function ready() {
-<<<<<<< HEAD
-   //mb.window.webContents.toggleDevTools();
-=======
     // mb.window.webContents.toggleDevTools();
->>>>>>> 96b64701c8bf02e3d01e7ce84ef4b529bbd55547
     globalShortcut.register(
         'CommandOrControl+ Shift + k',
         toggleWindow

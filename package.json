@@ -14,7 +14,6 @@
   },
   "dependencies": {
     "applescript": "^1.0.0",
-    "menubar": "^8.0.2",
-    "objc": "^0.20.0"
+    "menubar": "^8.0.2"
   }
 }
