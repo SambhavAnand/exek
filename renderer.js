@@ -118,6 +118,8 @@ document.addEventListener('keydown', function(event) {
       index++;
     //down 
     if (liSelected) {
+        search.blur()
+        liSelected.focus()
         removeClass(liSelected, 'selected');
         next = ul.getElementsByTagName('ul')[index];
         if(typeof next !== undefined && index <= len) {
@@ -145,6 +147,8 @@ document.addEventListener('keydown', function(event) {
     else if (event.which === 38) {
     //up
       if (liSelected) {
+        search.blur()
+        liSelected.focus()
         removeClass(liSelected, 'selected');
         index--;
         next = ul.getElementsByTagName('ul')[index];
@@ -164,6 +168,9 @@ document.addEventListener('keydown', function(event) {
         liSelected = ul.getElementsByTagName('ul')[len];
         addClass(liSelected, 'selected');
       }
+    }
+    else{
+      search.focus()
     }
   }
 }, false);

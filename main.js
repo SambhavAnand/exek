@@ -26,7 +26,7 @@ function toggleWindow() {
 }
   
 mb.on("ready", function ready() {
-    //mb.window.webContents.toggleDevTools();
+   //mb.window.webContents.toggleDevTools();
     globalShortcut.register(
         'CommandOrControl+ Shift + k',
         toggleWindow
@@ -37,7 +37,6 @@ mb.on('show', async () => {
     
     //Will Send a blocking message to the renderer channel
     mb.window.webContents.send("initialize", null);
-    
     verify.isValidWindow()
     .then(async appName => { 
         mb.window.webContents.send("appShortcuts", appName)
