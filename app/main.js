@@ -37,7 +37,7 @@ function toggleWindow() {
 app.on("ready", function bar_read() {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize
     win = new BrowserWindow({ 
-        width: 500, 
+        width: 600, 
         height: 300,
         frame:false, 
         transparent: true,
