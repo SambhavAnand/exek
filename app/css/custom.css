@@ -1,9 +1,41 @@
 
-.selected {
-    background-color: rgba(128, 128, 128, 0.295);
-    font-size: 16px;
+body {
+  background: #2a2e37;
+  font-size: 15px;
+  color: #fff;
+  overflow: hidden; /* Hide scrollbars */
 }
 
+.search-wrapper {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    top: 10px;
+    position: fixed;
+}
+
+.entry-styling{
+    color: white;
+    padding: 5px 40px 5px 40px;
+    margin-bottom: 0;
+}
+.selected {
+    box-sizing: border-box;
+    border-top: 2px ridge #00FEDE;
+    border-bottom: 2px ridge #00FEDE;
+    /* outline: solid 2px #00FEDE; */
+}
+
+.search-box {
+    width: 100%;
+    height: 100%;
+    box-shadow: none;
+    border: none;
+    background: transparent;
+    padding: 20px 100px 20px 45px;
+    font-size: 17px;
+    outline: none;
+    color: white;
+}
 .shortcut-container {
     display: flex;
     flex-direction: row;
@@ -13,6 +45,7 @@
 .shortcut-cmd {
     visibility: hidden;
     font-size: 0px;
+    margin-bottom: 0px;
 }
 
 .shortcut{
@@ -20,10 +53,12 @@
     display: inline-block;
     max-width: 200px;
     margin-left: 30px;
-    padding: 0px 10px 5px 10px;
+    margin-bottom: 0;
+    padding: 5px 10px 5px 10px;
     text-align: center;
     background-color: rgba(128, 128, 128, 0.404);
-    color: cadetblue;
+    color: #00FEDE;
+
 }
 
 .shortcut-description {
@@ -38,10 +73,12 @@
     display: -webkit-box;
     -webkit-line-clamp: 2;
     max-height: 40px;
-    color: rgb(26, 165, 170);
+    color: #fff;
+
 }
 
 .app-name{
     font-size: 10px;
     color: rgba(128, 128, 128, 0.562);
+    margin-bottom: 0px;
 }

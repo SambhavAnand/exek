@@ -90,7 +90,7 @@ const outputHTML = matches => {
         //else we can let it be where it is (on line 81 ) but will probably need to add a different styling to it
         matches[header].forEach(match => {
           html += `
-            <ul class="bar-text">
+            <ul class="entry-styling">
               <div class="shortcut-container">
                 <p class="shortcut-description">${match.text}</p>
                 <p class="shortcut">${match.shortcut}</p> 
@@ -125,7 +125,9 @@ document.addEventListener('keydown', function(event) {
     //down 
     if (liSelected) {
         search.blur()
-        liSelected.focus()
+        liSelected.scrollIntoView({
+          //behavior: 'smooth'
+        });
         removeClass(liSelected, 'selected');
         next = ul.getElementsByTagName('ul')[index];
         if(typeof next !== undefined && index <= len) {
@@ -154,10 +156,12 @@ document.addEventListener('keydown', function(event) {
     //up
       if (liSelected) {
         search.blur()
-        liSelected.focus()
         removeClass(liSelected, 'selected');
         index--;
         next = ul.getElementsByTagName('ul')[index];
+        next.scrollIntoView({
+          //behavior: 'smooth'
+        });
         if(typeof next !== undefined && index >= 0) {
                   liSelected = next;
               } else {
