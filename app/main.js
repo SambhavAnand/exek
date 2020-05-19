@@ -1,9 +1,15 @@
 const { app, BrowserWindow, globalShortcut, Menu, MenuItem, ipcMain, screen } = require('electron')
+
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
 const fetch = require('electron-fetch').default
 
+const {ShortcutsStore} = require('./scripts/util')
+
+
 //write function with min/max limits so that the size of the window is always resonable
+//Local Shortcut store
+const store = new ShortcutsStore()
 
 const mb = menubar({
     width: 500,
@@ -17,7 +23,6 @@ const mb = menubar({
         }
     }
 });
-
 
 mb.on("ready", function ready() {
     // mb.window.webContents.toggleDevTools();
@@ -46,11 +51,16 @@ app.on("ready", function bar_read() {
         },
         show: false
     });
+    
     win.loadURL(`file://${__dirname}/index.html`)
+    
     win.webContents.toggleDevTools()
-    win.on('ready-to-show', ()=>{
-        win.webContents.send('initShortcuts', null)
+    win.on('ready-to-show', ()=> {
+        store.getShortcuts()
+        .then(data => win.webContents.send('checkForUpdates', data))
+        .catch(error => console.log(error))
     })
+
     const ret = globalShortcut.register('Escape+;', () => {
         toggleWindow()
         if (!ret) {

@@ -6,28 +6,30 @@ const search = document.getElementById('search');
 const matchList = document.getElementById('match-list')
 
 let allShortcuts;
+let currentAppShorcuts;
 var index;
 var liSelected;
 
 ipcRenderer.on("initialize", (event) => {
-  allShortcuts = [];
+  currentAppShorcuts = [];
   index = -1;
   search.value = ''
 })
 
-ipcRenderer.on("initShortcuts", (event) => {
-  console.log("this hapened")
+ipcRenderer.on("checkForUpdates", (event, shortcuts) => {
+  console.log(shortcuts)
+  allShortcuts = Object.assign({}, shortcuts)
 })
 
 
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar
   search.focus()
-  generateShortcuts(appName)
+  generateShortcuts(allShortcuts, appName)
   .then(shortcuts => {
     //initial render here
     outputHTML(shortcuts)
-    allShortcuts = Object.assign({}, shortcuts);
+    currentAppShorcuts = Object.assign({}, shortcuts);
   })
 })
 
@@ -49,9 +51,9 @@ const searchShortcuts = async searchText => {
   index = -1;
 //Get Matches to ciurrent text input
     let matches = {}
-    Object.keys(allShortcuts).forEach(header => {
+    Object.keys(currentAppShorcuts).forEach(header => {
       let filteredData = []
-      let headerData = allShortcuts[header]
+      let headerData = currentAppShorcuts[header]
       filteredData = headerData.filter(item => {
         const regex = new RegExp(`${searchText}`, 'gi');
         return item.text.match(regex) || item.shortcut.match(regex) || (item.tags?item.tags.match(regex):false )
@@ -61,7 +63,7 @@ const searchShortcuts = async searchText => {
     })
     if(searchText.length === 0){
         //need to change this to include top 5/10 shortcuts
-        matches = Object.assign({}, allShortcuts);
+        matches = Object.assign({}, currentAppShorcuts);
     }
    outputHTML(matches);
 };

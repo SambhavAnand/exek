@@ -15,6 +15,8 @@
   "dependencies": {
     "applescript": "^1.0.0",
     "electron-fetch": "^1.4.0",
-    "menubar": "^8.0.2"
+    "menubar": "^8.0.2",
+    "moment": "^2.25.3",
+    "querystring": "^0.2.0"
   }
 }

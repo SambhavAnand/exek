@@ -1,9 +1,9 @@
-const { allShortcuts } = require('../shortcuts')
+// const { allShortcuts } = require('../shortcuts')
 const applescript = require('applescript')
 
 
 const appToShortcutGenerator = {
-    "Google Chrome": function() {
+    "Google Chrome": function(allShortcuts) {
         const activeChromeQstr = `tell application "Google Chrome" to return URL of active tab of front window`;
         return new Promise(function (resolve, reject) {
             applescript.execString(activeChromeQstr, function (err, url) {
@@ -23,9 +23,9 @@ const appToShortcutGenerator = {
     },
 }
 
-function generateShortcuts(appName) {
+function generateShortcuts(allShortcuts, appName) {
     if(appName in appToShortcutGenerator)
-        return appToShortcutGenerator[appName]()
+        return appToShortcutGenerator[appName](allShortcuts)
     else 
         return new Promise(function (resolve) {
             let res = {}
