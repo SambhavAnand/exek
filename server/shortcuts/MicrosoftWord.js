@@ -1,15 +1,5 @@
 const wordShortcuts = [
     {
-        text: "Undo the previous action",
-        command: `keystroke "z" using {command down}`,
-        shortcut: "⌘ + z"
-    },
-    {
-        text: "Redo the previous action",
-        command: `keystroke "y" using {command down}`,
-        shortcut: "⌘ + y"
-    },
-    {
         text: "Display the Go To dialog",
         command: `keystroke "g" using {command down, option down}`,
         shortcut: "⌘ + Option + g"
@@ -35,14 +25,10 @@ const wordShortcuts = [
         shortcut: "⌘ + shift + s"
     },
     {
-        text: "Find text",
-        command: `keystroke "f" using {command down}`,
-        shortcut: "⌘ + f"
-    },
-    {
         text: "Display the Find and Replace pane",
         command: `keystroke "h" using {control down}`,
-        shortcut: "control + h"
+        shortcut: "control + h",
+        tags: "search"
     },
     {
         text: "Search for selected text in your web browser",

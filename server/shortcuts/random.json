@@ -1,0 +1,773 @@
+[
+    {
+      "text": "Undo the previous action.",
+      "shortcut": "⌘ + Z",
+      "command": "keystroke \"Z\" using {command down}"
+    },
+    {
+      "text": "Redo the previous action, if possible.",
+      "shortcut": "⌘ + Y",
+      "command": "keystroke \"Y\" using {command down}"
+    },
+    {
+      "text": "Cut the selected content to the Clipboard.",
+      "shortcut": "⌘ + X",
+      "command": "keystroke \"X\" using {command down}"
+    },
+    {
+      "text": "Copy the selected content to the Clipboard.",
+      "shortcut": "⌘ + C",
+      "command": "keystroke \"C\" using {command down}"
+    },
+    {
+      "text": "Paste the contents of the Clipboard.",
+      "shortcut": "⌘ + V",
+      "command": "keystroke \"V\" using {command down}"
+    },
+    {
+      "text": "Display the shortcut menu for the selected item. *",
+      "shortcut": "Shift + F10",
+      "command": "keystroke \"F10\" using {shift down}"
+    },
+    {
+      "text": "Display the Go To dialog.",
+      "shortcut": "⌘ + Option + G",
+      "command": "keystroke \"G\" using {command down, option down}"
+    },
+    {
+      "text": "Display the Spelling and Grammar dialog.",
+      "shortcut": "⌘ + Option + L",
+      "command": "keystroke \"L\" using {command down, option down}"
+    },
+    {
+      "text": "Switch to the next window.",
+      "shortcut": "⌘ + Grave accent ( ` )",
+      "command": "keystroke \"Grave accent ( ` )\" using {command down}"
+    },
+    {
+      "text": "Switch to the previous window.",
+      "shortcut": "⌘ + Shift + Grave accent ( ` )",
+      "command": "keystroke \"Grave accent ( ` )\" using {command down, shift down}"
+    },
+    {
+      "text": "Display the Save As dialog.",
+      "shortcut": "⌘ + Shift + S",
+      "command": "keystroke \"S\" using {command down, shift down}"
+    },
+    {
+      "text": "Find text (move focus to the Search in Document box).",
+      "shortcut": "⌘ + F",
+      "command": "keystroke \"F\" using {command down}"
+    },
+    {
+      "text": "Display the Find and Replace pane.",
+      "shortcut": "Control + H",
+      "command": "keystroke \"H\" using {control down}"
+    },
+    {
+      "text": "Display the Print dialog.",
+      "shortcut": "⌘ + P",
+      "command": "keystroke \"P\" using {command down}"
+    },
+    {
+      "text": "Close the current document.",
+      "shortcut": "⌘ + F4",
+      "command": "keystroke \"F4\" using {command down}"
+    },
+    {
+      "text": "Expand or minimize the ribbon",
+      "shortcut": "⌘ + Option + R",
+      "command": "keystroke \"R\" using {command down, option down}"
+    },
+    {
+      "text": "Find the next spelling or grammatical error. The Check spelling as you type feature must be enabled.",
+      "shortcut": "Option + F7",
+      "command": "keystroke \"F7\" using {option down}"
+    },
+    {
+      "text": "Search for the selected text in your web browser.",
+      "shortcut": "⌘ + Shift + L",
+      "command": "keystroke \"L\" using {command down, shift down}"
+    },
+    {
+      "text": "Search for the selected text using the Smart Lookup task pane.",
+      "shortcut": "⌘ + Control + Option + L",
+      "command": "keystroke \"L\" using {command down, control down, option down}"
+    },
+    {
+      "text": "Open the Dictionary.",
+      "shortcut": "Option + Shift + F7",
+      "command": "keystroke \"F7\" using {option down, shift down}"
+    },
+    {
+      "text": "Move the cursor one word to the left.",
+      "shortcut": "Option + Left arrow",
+      "command": "keystroke \"Left arrow\" using {option down}"
+    },
+    {
+      "text": "Move the cursor one word to the right.",
+      "shortcut": "Option + Right arrow ",
+      "command": "keystroke \"Right arrow\" using {option down}"
+    },
+    {
+      "text": "Move the cursor up by one paragraph.",
+      "shortcut": "⌘ + Up arrow ",
+      "command": "keystroke \"Up arrow\" using {command down}"
+    },
+    {
+      "text": "Move the cursor down by one paragraph.",
+      "shortcut": "⌘ + Down arrow ",
+      "command": "keystroke \"Down arrow\" using {command down}"
+    },
+    {
+      "text": "Move the cursor to the beginning of the current line.",
+      "shortcut": "⌘ + Left arrow",
+      "command": "keystroke \"Left arrow\" using {command down}"
+    },
+    {
+      "text": "Move the cursor to the end of the current line.",
+      "shortcut": "⌘ + Right arrow ",
+      "command": "keystroke \"Right arrow\" using {command down}"
+    },
+    {
+      "text": "Move the cursor to the top of the previous page.",
+      "shortcut": "⌘ + Page up",
+      "command": "keystroke \"Page up\" using {command down}"
+    },
+    {
+      "text": "Move the cursor to the top of the next page.",
+      "shortcut": "⌘ + Page down",
+      "command": "keystroke \"Page down\" using {command down}"
+    },
+    {
+      "text": "Move the cursor to the beginning of the document.",
+      "shortcut": "⌘ + Home",
+      "command": "keystroke \"Home\" using {command down}"
+    },
+    {
+      "text": "Move the cursor to the end of the document.",
+      "shortcut": "⌘ + End",
+      "command": "keystroke \"End\" using {command down}"
+    },
+    {
+      "text": "Move the cursor to the previous insertion point.",
+      "shortcut": "Shift + F5",
+      "command": "keystroke \"F5\" using {shift down}"
+    },
+    {
+      "text": "Move the cursor by scrolling the document view up by one screen.",
+      "shortcut": "Page up",
+      "command": "keystroke \"Page up\" using {}"
+    },
+    {
+      "text": "Move the cursor by scrolling the document view down by one screen.",
+      "shortcut": "Page down",
+      "command": "keystroke \"Page down\" using {}"
+    },
+    {
+      "text": "Select text.",
+      "shortcut": "Shift + Arrow",
+      "command": "keystroke \"Arrow\" using {shift down}"
+    },
+    {
+      "text": "Select the word to the left.",
+      "shortcut": "Shift + Option + Left arrow",
+      "command": "keystroke \"Left arrow\" using {shift down, option down}"
+    },
+    {
+      "text": "Select the word to the right.",
+      "shortcut": "Shift + Option + Right arrow ",
+      "command": "keystroke \"Right arrow\" using {shift down, option down}"
+    },
+    {
+      "text": "Select from the current position to the beginning of the current line.",
+      "shortcut": "⌘ + Shift + Left arrow",
+      "command": "keystroke \"Left arrow\" using {command down, shift down}"
+    },
+    {
+      "text": "Select from the current position to the end of the current line.",
+      "shortcut": "⌘ + Shift + Right arrow ",
+      "command": "keystroke \"Right arrow\" using {command down, shift down}"
+    },
+    {
+      "text": "Select from the current position to the beginning of the current paragraph.",
+      "shortcut": "⌘ + Shift + Up arrow ",
+      "command": "keystroke \"Up arrow\" using {command down, shift down}"
+    },
+    {
+      "text": "Select from the current position  to the end of the current paragraph.",
+      "shortcut": "⌘ + Shift + Down arrow ",
+      "command": "keystroke \"Down arrow\" using {command down, shift down}"
+    },
+    {
+      "text": "Select from the current position to the top of the screen.",
+      "shortcut": "Shift + Page up",
+      "command": "keystroke \"Page up\" using {shift down}"
+    },
+    {
+      "text": "Select from the current position to the bottom of the screen.",
+      "shortcut": "Shift + Page down",
+      "command": "keystroke \"Page down\" using {shift down}"
+    },
+    {
+      "text": "Select from the current position to the beginning of the document.",
+      "shortcut": "⌘ + Shift + Home",
+      "command": "keystroke \"Home\" using {command down, shift down}"
+    },
+    {
+      "text": "Select from the current position to the end of the  document.",
+      "shortcut": "⌘ + Shift + End",
+      "command": "keystroke \"End\" using {command down, shift down}"
+    },
+    {
+      "text": "Select from the current position to the bottom of the window.",
+      "shortcut": "⌘ + Shift + Option + Page down",
+      "command": "keystroke \"Page down\" using {command down, shift down, option down}"
+    },
+    {
+      "text": "Select all document content.",
+      "shortcut": "⌘ + A",
+      "command": "keystroke \"A\" using {command down}"
+    },
+    {
+      "text": "Reduce the selection. *",
+      "shortcut": "Shift + F8",
+      "command": "keystroke \"F8\" using {shift down}"
+    },
+    {
+      "text": "Select  a vertical block of text.",
+      "shortcut": "⌘ + Shift + F8,",
+      "command": "keystroke \"F8,\" using {command down, shift down}"
+    },
+    {
+      "text": "Cut the selected content to the Clipboard.",
+      "shortcut": "⌘ + X",
+      "command": "keystroke \"X\" using {command down}"
+    },
+    {
+      "text": "Copy  the selected content to the Clipboard.",
+      "shortcut": "⌘ + C",
+      "command": "keystroke \"C\" using {command down}"
+    },
+    {
+      "text": "Paste the contents of the Clipboard.",
+      "shortcut": "⌘ + V",
+      "command": "keystroke \"V\" using {command down}"
+    },
+    {
+      "text": "Paste the Clipboard contents and match the formatting of the surrounding text.",
+      "shortcut": "⌘ + Option + Shift + V",
+      "command": "keystroke \"V\" using {command down, option down, shift down}"
+    },
+    {
+      "text": "Display the Paste Special dialog.",
+      "shortcut": "⌘ + Control + V",
+      "command": "keystroke \"V\" using {command down, control down}"
+    },
+    {
+      "text": "Cut  the selected content to the Spike.",
+      "shortcut": "⌘ + F3",
+      "command": "keystroke \"F3\" using {command down}"
+    },
+    {
+      "text": "Paste the contents of the Spike.",
+      "shortcut": "⌘ + Shift + F3",
+      "command": "keystroke \"F3\" using {command down, shift down}"
+    },
+    {
+      "text": "Copy the selected formatting.",
+      "shortcut": "⌘ + Shift + C",
+      "command": "keystroke \"C\" using {command down, shift down}"
+    },
+    {
+      "text": "Paste the copied formatting.",
+      "shortcut": "⌘ + Shift + V",
+      "command": "keystroke \"V\" using {command down, shift down}"
+    },
+    {
+      "text": "Copy the selected content to  the Scrapbook.",
+      "shortcut": "Control + Option + C",
+      "command": "keystroke \"C\" using {control down, option down}"
+    },
+    {
+      "text": "Paste the selected content from the Scrapbook.",
+      "shortcut": "Control + Option + V",
+      "command": "keystroke \"V\" using {control down, option down}"
+    },
+    {
+      "text": "Insert graphics using the Media Browser.",
+      "shortcut": "Control + M",
+      "command": "keystroke \"M\" using {control down}"
+    },
+    {
+      "text": "Create an AutoText entry.",
+      "shortcut": "Option + F3",
+      "command": "keystroke \"F3\" using {option down}"
+    },
+    {
+      "text": "Insert an AutoText entry.",
+      "shortcut": "⌘ + Option + Shift + V",
+      "command": "keystroke \"V\" using {command down, option down, shift down}"
+    },
+    {
+      "text": "Center the paragraph.",
+      "shortcut": "⌘ + E",
+      "command": "keystroke \"E\" using {command down}"
+    },
+    {
+      "text": "Justify the paragraph.",
+      "shortcut": "⌘ + J",
+      "command": "keystroke \"J\" using {command down}"
+    },
+    {
+      "text": "Align the paragraph to the left.",
+      "shortcut": "⌘ + L",
+      "command": "keystroke \"L\" using {command down}"
+    },
+    {
+      "text": "Align the paragraph to the right.",
+      "shortcut": "⌘ + R",
+      "command": "keystroke \"R\" using {command down}"
+    },
+    {
+      "text": "Indent the paragraph.",
+      "shortcut": "Control + Shift + M",
+      "command": "keystroke \"M\" using {control down, shift down}"
+    },
+    {
+      "text": "Remove a paragraph indent.",
+      "shortcut": "⌘ + Shift + M",
+      "command": "keystroke \"M\" using {command down, shift down}"
+    },
+    {
+      "text": "Create a hanging indent.",
+      "shortcut": "⌘ + T",
+      "command": "keystroke \"T\" using {command down}"
+    },
+    {
+      "text": "Remove a hanging indent.",
+      "shortcut": "⌘ + Shift + T",
+      "command": "keystroke \"T\" using {command down, shift down}"
+    },
+    {
+      "text": "Apply single-spacing to the paragraph.",
+      "shortcut": "⌘ + 1",
+      "command": "keystroke \"1\" using {command down}"
+    },
+    {
+      "text": "Apply double-spacing to the paragraph.",
+      "shortcut": "⌘ + 2",
+      "command": "keystroke \"2\" using {command down}"
+    },
+    {
+      "text": "Apply 1.5-line spacing to the paragraph.",
+      "shortcut": "⌘ + 5",
+      "command": "keystroke \"5\" using {command down}"
+    },
+    {
+      "text": "Add or remove space before the paragraph.",
+      "shortcut": "⌘ + 0",
+      "command": "keystroke \"0\" using {command down}"
+    },
+    {
+      "text": "Enable AutoFormat.",
+      "shortcut": "⌘ + Option + K",
+      "command": "keystroke \"K\" using {command down, option down}"
+    },
+    {
+      "text": "Apply the Normal style.",
+      "shortcut": "⌘ + Shift + N",
+      "command": "keystroke \"N\" using {command down, shift down}"
+    },
+    {
+      "text": "Apply the Heading 1 style.",
+      "shortcut": "⌘ + Option + 1",
+      "command": "keystroke \"1\" using {command down, option down}"
+    },
+    {
+      "text": "Apply the Heading 2 style.",
+      "shortcut": "⌘ + Option + 2",
+      "command": "keystroke \"2\" using {command down, option down}"
+    },
+    {
+      "text": "Apply the Heading 3 style.",
+      "shortcut": "⌘ + Option + 3",
+      "command": "keystroke \"3\" using {command down, option down}"
+    },
+    {
+      "text": "Apply the List style.",
+      "shortcut": "⌘ + Shift + L",
+      "command": "keystroke \"L\" using {command down, shift down}"
+    },
+    {
+      "text": "Insert a nonbreaking space.",
+      "shortcut": "Option + Spacebar",
+      "command": "keystroke \"Spacebar\" using {option down}"
+    },
+    {
+      "text": "Change the font.",
+      "shortcut": "⌘ + Shift + F",
+      "command": "keystroke \"F\" using {command down, shift down}"
+    },
+    {
+      "text": "Increase the font size.",
+      "shortcut": "⌘ + Shift + >",
+      "command": "keystroke \">\" using {command down, shift down}"
+    },
+    {
+      "text": "Decrease the font size.",
+      "shortcut": "⌘ + Shift + <",
+      "command": "keystroke \"<\" using {command down, shift down}"
+    },
+    {
+      "text": "Increase the font size by 1 point.",
+      "shortcut": "⌘ + ]",
+      "command": "keystroke \"]\" using {command down}"
+    },
+    {
+      "text": "Decrease the font size by 1 point.",
+      "shortcut": "⌘ + [",
+      "command": "keystroke \"[\" using {command down}"
+    },
+    {
+      "text": "Display the Font dialog.",
+      "shortcut": "⌘ + D",
+      "command": "keystroke \"D\" using {command down}"
+    },
+    {
+      "text": "Switch the text between upper case, lower case, and title case.",
+      "shortcut": "Shift + F3",
+      "command": "keystroke \"F3\" using {shift down}"
+    },
+    {
+      "text": "Change the text to all upper case.",
+      "shortcut": "⌘ + Shift + A",
+      "command": "keystroke \"A\" using {command down, shift down}"
+    },
+    {
+      "text": "Apply bold formatting.",
+      "shortcut": "⌘ + B",
+      "command": "keystroke \"B\" using {command down}"
+    },
+    {
+      "text": "Apply underline formatting.",
+      "shortcut": "⌘ + U",
+      "command": "keystroke \"U\" using {command down}"
+    },
+    {
+      "text": "Apply underline formatting to the words, but not the spaces.",
+      "shortcut": "⌘ + Shift + W",
+      "command": "keystroke \"W\" using {command down, shift down}"
+    },
+    {
+      "text": "Apply double-underline formatting.",
+      "shortcut": "⌘ + Shift + D",
+      "command": "keystroke \"D\" using {command down, shift down}"
+    },
+    {
+      "text": "Apply italics formatting.",
+      "shortcut": "⌘ + I",
+      "command": "keystroke \"I\" using {command down}"
+    },
+    {
+      "text": "Apply small caps formatting.",
+      "shortcut": "⌘ + Shift + K",
+      "command": "keystroke \"K\" using {command down, shift down}"
+    },
+    {
+      "text": "Apply subscript formatting.",
+      "shortcut": "⌘ + =",
+      "command": "keystroke \"=\" using {command down}"
+    },
+    {
+      "text": "Apply superscript formatting.",
+      "shortcut": "⌘ + Shift + Plus",
+      "command": "keystroke \"Plus\" using {command down, shift down}"
+    },
+    {
+      "text": "Apply strike-through formatting.",
+      "shortcut": "⌘ + Shift + X",
+      "command": "keystroke \"X\" using {command down, shift down}"
+    },
+    {
+      "text": "Remove manual character formatting.",
+      "shortcut": "⌘ + Shift + Z",
+      "command": "keystroke \"Z\" using {command down, shift down}"
+    },
+    {
+      "text": "Insert an empty field.",
+      "shortcut": "⌘ + F9",
+      "command": "keystroke \"F9\" using {command down}"
+    },
+    {
+      "text": "Insert a line break.",
+      "shortcut": "Shift + Return",
+      "command": "keystroke \"Return\" using {shift down}"
+    },
+    {
+      "text": "Insert a page break.",
+      "shortcut": "⌘ + Return",
+      "command": "keystroke \"Return\" using {command down}"
+    },
+    {
+      "text": "Insert a column break.",
+      "shortcut": "⌘ + Shift + Return",
+      "command": "keystroke \"Return\" using {command down, shift down}"
+    },
+    {
+      "text": "Insert a nonbreaking hyphen.",
+      "shortcut": "⌘ + Shift + Hyphen",
+      "command": "keystroke \"Hyphen\" using {command down, shift down}"
+    },
+    {
+      "text": "Insert a copyright symbol (©).",
+      "shortcut": "Option + G",
+      "command": "keystroke \"G\" using {option down}"
+    },
+    {
+      "text": "Insert a registered trademark symbol (®).",
+      "shortcut": "Option + R",
+      "command": "keystroke \"R\" using {option down}"
+    },
+    {
+      "text": "Insert a trademark symbol (™).",
+      "shortcut": "Option + 2",
+      "command": "keystroke \"2\" using {option down}"
+    },
+    {
+      "text": "Insert an ellipsis (…)",
+      "shortcut": "Option + Semicolon",
+      "command": "keystroke \"Semicolon\" using {option down}"
+    },
+    {
+      "text": "Move to the previous cell and select its content.",
+      "shortcut": "Shift + Tab",
+      "command": "keystroke \"Tab\" using {shift down}"
+    },
+    {
+      "text": "Move to the first cell in the row.",
+      "shortcut": "Control + Home",
+      "command": "keystroke \"Home\" using {control down}"
+    },
+    {
+      "text": "Move to the last cell in the row.",
+      "shortcut": "Control + End",
+      "command": "keystroke \"End\" using {control down}"
+    },
+    {
+      "text": "Move to the first cell in the column.",
+      "shortcut": "Control + Page up",
+      "command": "keystroke \"Page up\" using {control down}"
+    },
+    {
+      "text": "Move to the last cell in the column.",
+      "shortcut": "Control + Page down",
+      "command": "keystroke \"Page down\" using {control down}"
+    },
+    {
+      "text": "Insert a row.",
+      "shortcut": "⌘ + Control + I",
+      "command": "keystroke \"I\" using {command down, control down}"
+    },
+    {
+      "text": "Select the content in the previous cell.",
+      "shortcut": "Shift + Tab",
+      "command": "keystroke \"Tab\" using {shift down}"
+    },
+    {
+      "text": "Extend a selection to adjacent cells.",
+      "shortcut": "Shift + Arrow",
+      "command": "keystroke \"Arrow\" using {shift down}"
+    },
+    {
+      "text": "Move a single column line and retain the table width.",
+      "shortcut": "Shift + Drag",
+      "command": "keystroke \"Drag\" using {shift down}"
+    },
+    {
+      "text": "Equally resize all columns to the right and retain the table width.",
+      "shortcut": "⌘ + Shift + Drag",
+      "command": "keystroke \"Drag\" using {command down, shift down}"
+    },
+    {
+      "text": "Proportionally resize all columns to the right and retain the table width.",
+      "shortcut": "⌘ + Drag",
+      "command": "keystroke \"Drag\" using {command down}"
+    },
+    {
+      "text": "Retain column sizes to the right and change the table width.",
+      "shortcut": "Shift + Drag",
+      "command": "keystroke \"Drag\" using {shift down}"
+    },
+    {
+      "text": "Equally resize all columns to the right and retain the table width.",
+      "shortcut": "⌘ + Shift + Drag",
+      "command": "keystroke \"Drag\" using {command down, shift down}"
+    },
+    {
+      "text": "Proportionally resize all columns to the right and retain the table width.",
+      "shortcut": "⌘ + Drag",
+      "command": "keystroke \"Drag\" using {command down}"
+    },
+    {
+      "text": "Insert a Tab character in a cell.",
+      "shortcut": "Option + Tab",
+      "command": "keystroke \"Tab\" using {option down}"
+    },
+    {
+      "text": "Toggle drawing mode.",
+      "shortcut": "⌘ + Control + Z",
+      "command": "keystroke \"Z\" using {command down, control down}"
+    },
+    {
+      "text": "Insert a DATE field.",
+      "shortcut": "Control + Shift + D",
+      "command": "keystroke \"D\" using {control down, shift down}"
+    },
+    {
+      "text": "Insert a LISTNUM field.",
+      "shortcut": "⌘ + Option + Shift + L",
+      "command": "keystroke \"L\" using {command down, option down, shift down}"
+    },
+    {
+      "text": "Insert a PAGE field.",
+      "shortcut": "Control + Shift + P",
+      "command": "keystroke \"P\" using {control down, shift down}"
+    },
+    {
+      "text": "Insert a TIME field.",
+      "shortcut": "Control + Shift + T",
+      "command": "keystroke \"T\" using {control down, shift down}"
+    },
+    {
+      "text": "Insert an empty field.",
+      "shortcut": "⌘ + F9",
+      "command": "keystroke \"F9\" using {command down}"
+    },
+    {
+      "text": "Unlink a field.",
+      "shortcut": "⌘ + Shift + F9",
+      "command": "keystroke \"F9\" using {command down, shift down}"
+    },
+    {
+      "text": "Switch between a field code and its result. *",
+      "shortcut": "Shift + F9",
+      "command": "keystroke \"F9\" using {shift down}"
+    },
+    {
+      "text": "Switch between all field codes and their results.",
+      "shortcut": "Option + F9",
+      "command": "keystroke \"F9\" using {option down}"
+    },
+    {
+      "text": "Run GOTOBUTTON or MACROBUTTON from a field displaying field results.",
+      "shortcut": "Option + Shift + F9",
+      "command": "keystroke \"F9\" using {option down, shift down}"
+    },
+    {
+      "text": "Go to the previous field.",
+      "shortcut": "Shift + F11",
+      "command": "keystroke \"F11\" using {shift down}"
+    },
+    {
+      "text": "Lock a field.",
+      "shortcut": "⌘ + F11",
+      "command": "keystroke \"F11\" using {command down}"
+    },
+    {
+      "text": "Unlock a field.",
+      "shortcut": "⌘ + Shift + F11",
+      "command": "keystroke \"F11\" using {command down, shift down}"
+    },
+    {
+      "text": "Promote a paragraph.",
+      "shortcut": "Control + Shift + Left arrow",
+      "command": "keystroke \"Left arrow\" using {control down, shift down}"
+    },
+    {
+      "text": "Demote a paragraph.",
+      "shortcut": "Control + Shift + Right arrow ",
+      "command": "keystroke \"Right arrow\" using {control down, shift down}"
+    },
+    {
+      "text": "Demote the paragraph to body text.",
+      "shortcut": "⌘ + Shift + N",
+      "command": "keystroke \"N\" using {command down, shift down}"
+    },
+    {
+      "text": "Move the selected paragraphs up. *",
+      "shortcut": "Control + Shift + Up arrow ",
+      "command": "keystroke \"Up arrow\" using {control down, shift down}"
+    },
+    {
+      "text": "Move the selected paragraphs down. *",
+      "shortcut": "Control + Shift + Down arrow ",
+      "command": "keystroke \"Down arrow\" using {control down, shift down}"
+    },
+    {
+      "text": "Expand  the text under a heading.",
+      "shortcut": "Control + Shift + Plus",
+      "command": "keystroke \"Plus\" using {control down, shift down}"
+    },
+    {
+      "text": "Collapse text under a heading. *",
+      "shortcut": "Control + Shift + Minus",
+      "command": "keystroke \"Minus\" using {control down, shift down}"
+    },
+    {
+      "text": "Expand all body text and headings, or collapse all body text.",
+      "shortcut": "Control + Shift + A",
+      "command": "keystroke \"A\" using {control down, shift down}"
+    },
+    {
+      "text": "Switch between showing the first line of body text and showing all body text.",
+      "shortcut": "Control + Shift + L",
+      "command": "keystroke \"L\" using {control down, shift down}"
+    },
+    {
+      "text": "Show all headings with the specified heading level.",
+      "shortcut": "Control + Shift + Heading level number",
+      "command": "keystroke \"Heading level number\" using {control down, shift down}"
+    },
+    {
+      "text": "Insert a comment.",
+      "shortcut": "⌘ + Option + A",
+      "command": "keystroke \"A\" using {command down, option down}"
+    },
+    {
+      "text": "Turn change tracking on or off.",
+      "shortcut": "⌘ + Shift + E",
+      "command": "keystroke \"E\" using {command down, shift down}"
+    },
+    {
+      "text": "Move to the beginning of the list of comments.",
+      "shortcut": "⌘ + Home",
+      "command": "keystroke \"Home\" using {command down}"
+    },
+    {
+      "text": "Move to the end of the list of comments.",
+      "shortcut": "⌘ + End",
+      "command": "keystroke \"End\" using {command down}"
+    },
+    {
+      "text": "Insert a footnote.",
+      "shortcut": "⌘ + Option + F",
+      "command": "keystroke \"F\" using {command down, option down}"
+    },
+    {
+      "text": "Insert an endnote.",
+      "shortcut": "⌘ + Option + E",
+      "command": "keystroke \"E\" using {command down, option down}"
+    },
+    {
+      "text": "Switch the writing direction to right-to-left.",
+      "shortcut": "⌘ + Control + Left arrow",
+      "command": "keystroke \"Left arrow\" using {command down, control down}"
+    },
+    {
+      "text": "Switch the writing direction to left-to-right.",
+      "shortcut": "⌘ + Control + Right arrow",
+      "command": "keystroke \"Right arrow\" using {command down, control down}"
+    }
+  ]
+  

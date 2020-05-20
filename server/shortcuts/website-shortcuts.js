@@ -143,74 +143,20 @@ const websiteShortcutMapping = {
   'docs.google.com': [
     //The following are general shortcuts
     {
+      text: "Find and replace",
+      command: `keystroke "h" using {command down, shift down}`,
+      shortcut: "⌘ + Shift + h",
+      tags: "search"
+    },
+    {
       text: "Insert or edit link",
       command: `keystroke "k" using {command down}`,
       shortcut: "⌘ + k",
     },
     {
-      text: "Print",
-      command: `keystroke "p" using {command down}`,
-      shortcut: "⌘ + p",
-    },
-    {
-      text: "Open",
-      command: `keystroke "o" using {command down}`,
-      shortcut: "⌘ + o",
-    },
-    {
-      text: "Find",
-      command: `keystroke "f" using {command down}`,
-      shortcut: "⌘ + f",
-    },
-    {
-      text: "Find and replace",
-      command: `keystroke "h" using {command down, shift down}`,
-      shortcut: "⌘ + Shift + h",
-    },
-    {
-      text: "Find again",
-      command: `keystroke "g" using {command down}`,
-      shortcut: "⌘ + g",
-    },
-    {
-      text: "Find previous",
-      command: `keystroke "g" using {command down, shift down}`,
-      shortcut: "⌘ + Shift + g",
-    },
-    {
       text: "Insert page break",
       command: `key code '36' using {command down}`,
       shortcut: "⌘ + Enter",
-    },
-    {
-      text: "Copy",
-      command: `keystroke "c" using {command down}`,
-      shortcut: "⌘ + c",
-    },
-    {
-      text: "Cut",
-      command: `keystroke "x using {command down}`,
-      shortcut: "⌘ + x",
-    },
-    {
-      text: "Paste",
-      comamnd: `keystroke "v" using {command down}`,
-      shortcut: "⌘ + v",
-    },
-    {
-      text: "Paste without formatting",
-      command: `keystroke "v" using {command down, shift down}`,
-      shortcut: "⌘ + Shift + v",
-    },
-    {
-      text: "Undo",
-      command: `keystroke "z" using {command down}`,
-      shortcut: "⌘ + z",
-    },
-    {
-      text: "Redo",
-      command: `keystroke "z" using {command down. shift down}`,
-      shortcut: "⌘ + Shift + z",
     },
     {
       text: "Search the menus",
@@ -519,11 +465,6 @@ const websiteShortcutMapping = {
       shortcut: "Ctrl + Option + h"
     },
     //Text Selection With Keyboard Options
-    {
-      text: "Select all",
-      command: `keystroke "a" using {command down}`,
-      shortcut: "⌘ + a"
-    },
     {
       text: "Extend selection one character",
       command: `key code "124" using {shift down}`,

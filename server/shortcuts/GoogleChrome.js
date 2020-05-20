@@ -49,21 +49,6 @@ const chromeShortcuts = {
       tags: "quit"
     },
     {
-      text: "Minimize the window",
-      command: `keystroke "m" using {command down}`,
-      shortcut: "⌘ + m",
-    },
-    {
-      text: "Hide Google Chrome",
-      command: `keystroke "h" using {command down}`,
-      shortcut: "⌘ + h",
-    },
-    {
-      text: "Quit Google Chrome",
-      command: `keystroke "q" using {command down}`,
-      shortcut: "⌘ + q",
-    },
-    {
       text: "Show or hide the Bookmarks Bar",
       command: `keystroke "b" using {command down, shift down}`,
       shortcut: "⌘ + Shift + b",
@@ -84,21 +69,6 @@ const chromeShortcuts = {
       shortcut: "⌘ + Shift + j",
     },
     {
-      text: "Open the Find Bar to search the current page",
-      command: `keystroke "f" using {command down}`,
-      shortcut: "⌘ + f",
-    },
-    {
-      text: "Jump to the next match to your Find Bar search",
-      command: `keystroke "g" using {command down}`,
-      shortcut: "⌘ + g",
-    },
-    {
-      text: "Jump to the previous match to your Find Bar search",
-      command: `keystroke "g" using {command down, shift down}`,
-      shortcut: "⌘ + Shift + g",
-    },
-    {
       text: "When Find Bar is open, search for selected text",
       command: `keystroke "e" using {command down}`,
       shortcut: "⌘ + e",
@@ -107,11 +77,6 @@ const chromeShortcuts = {
       text: "Log in as a different user, browse as a Guest, or access payment and password info",
       command: `keystroke "m" using {command down, shift donw}`,
       shortcut: "⌘ + Shift + m",
-    },
-    {
-      text: "Open file",
-      command: `keystroke "o" using {command down}`,
-      shortcut: "⌘ + o"
     },
     {
       text: "Jump to the address bar",
