@@ -36,7 +36,7 @@ app.on("ready", () => {
     
     win.loadURL(`file://${__dirname}/index.html`)
     
-    // win.webContents.toggleDevTools()
+    win.webContents.toggleDevTools()
     win.on('ready-to-show', () => {
         store.getShortcuts()
         .then(data => win.webContents.send('updateData', data))

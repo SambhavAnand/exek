@@ -35,8 +35,8 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
 //TODO: Change styling for the case when app is not supported
 ipcRenderer.on("error", (event, error) => {
   const errorHtml = `
-            <div class="card card-body mb-1">
-            <h5 class= "bar-text">${error.msg}</h5>
+            <div class="shortcut-container" style="align-items : center">
+            <p class= "shortcut-description">${error.msg}</h5>
             </div>
         `
     matchList.innerHTML = errorHtml
@@ -118,48 +118,44 @@ document.addEventListener('keydown', function(event) {
   var ul = document.getElementById('match-list');
   var len = ul.getElementsByTagName('ul').length-1;
   if(len >= 0){
+    //Key Press Down
     if(event.which === 40) {
       index++;
-    //down 
-    if (liSelected) {
-        search.blur()
-        liSelected.scrollIntoView({
-          //behavior: 'smooth'
-        });
-        removeClass(liSelected, 'selected');
-        next = ul.getElementsByTagName('ul')[index];
-        if(typeof next !== undefined && index <= len) {
-                  liSelected = next;
-              } else {
-                  index = 0;
-                  liSelected = ul.getElementsByTagName('ul')[0];
-              }
-              addClass(liSelected, 'selected');
-      }
+      if (liSelected) {
+          search.blur()
+          removeClass(liSelected, 'selected');
+          next = ul.getElementsByTagName('ul')[index];
+          if(typeof next !== undefined && index <= len) {
+            liSelected = next;
+          } 
+          else{
+            index = 0;
+            liSelected = ul.getElementsByTagName('ul')[0];
+          }
+          addClass(liSelected, 'selected');
+        }
       else {
         index = 0;
         liSelected = ul.getElementsByTagName('ul')[0];
         addClass(liSelected, 'selected');
       }
     }
-    //case when enter is hit - execute the Apple Script
-    else if (event.which == 13) {
-      if(liSelected) {
-        const metadata = liSelected.getElementsByClassName('shortcut-cmd')[0].innerHTML
-        const [command, appName] = metadata.split(';')
-        execCommand.execCommand(appName, command)
-      }
+    //
+  else if (event.which == 13) {
+    //TODO - Update values 
+    if(liSelected) {
+      const metadata = liSelected.getElementsByClassName('shortcut-cmd')[0].innerHTML
+      const [command, appName] = metadata.split(';')
+      execCommand.execCommand(appName, command)
     }
-    else if (event.which === 38) {
+  }
+  else if (event.which === 38) {
     //up
       if (liSelected) {
         search.blur()
         removeClass(liSelected, 'selected');
         index--;
         next = ul.getElementsByTagName('ul')[index];
-        next.scrollIntoView({
-          //behavior: 'smooth'
-        });
         if(typeof next !== undefined && index >= 0) {
                   liSelected = next;
               } else {
