@@ -160,7 +160,7 @@ const websiteShortcutMapping = {
     },
     {
       text: "Search the menus",
-      command: `keystroke "+" using {command down}`,
+      command: `keystroke "/" using {option down}`,
       shortcut: "Option + /",
     },
     //The following are text formatting shortcuts
