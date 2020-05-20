@@ -143,6 +143,24 @@ const websiteShortcutMapping = {
   'docs.google.com': [
     //The following are general shortcuts
     {
+      text: "Find",
+      command: `keystroke "f" using {command down}`,
+      shortcut: "⌘ + f",
+      tags: "search",
+    },
+    {
+      text: "Find next",
+      command: `keystroke "g" using {command down}`,
+      shortcut: "⌘ + g",
+      tags: "search",
+    },
+    {
+      text: "Find previous",
+      command: `keystroke "g" using {command down, shift down}`,
+      shortcut: "⌘ + Shift + g",
+      tags: "search",
+    },
+    {
       text: "Find and replace",
       command: `keystroke "h" using {command down, shift down}`,
       shortcut: "⌘ + Shift + h",
@@ -556,6 +574,28 @@ const websiteShortcutMapping = {
       text: "Seek forward 10 seconds",
       command: `keystroke "l"`,
       shortcut: "l"
+    }
+  ],
+  'airtable.com': [
+    {
+      text: "Open table switcher",
+      command: `keystroke "j" using {command down}`,
+      shortcut: 'Command - J'
+    },
+    {
+      text: "Open the quick base switcher",
+      command: `keystroke "k" using {command down}`,
+      shortcut: "Command - K"
+    },
+    {
+      text: "Open the view switcher in the current base",
+      command: `keystroke "k" using {command down, shift down}`,
+      shortcut: "Command - Shift - K"
+    },
+    {
+      text: "Open the filter menu in the current view",
+      command: `keystroke "f" using {command down, shift down}`,
+      shortcut: "Command - Shift - F"
     }
   ]
 }

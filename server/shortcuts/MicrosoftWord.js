@@ -1,5 +1,23 @@
 const wordShortcuts = [
     {
+        text: "Find",
+        command: `keystroke "f" using {command down}`,
+        shortcut: "⌘ + f",
+        tags: "search",
+      },
+      {
+        text: "Find next",
+        command: `keystroke "g" using {command down}`,
+        shortcut: "⌘ + g",
+        tags: "search",
+      },
+      {
+        text: "Find previous",
+        command: `keystroke "g" using {command down, shift down}`,
+        shortcut: "⌘ + Shift + g",
+        tags: "search",
+      },
+    {
         text: "Display the Go To dialog",
         command: `keystroke "g" using {command down, option down}`,
         shortcut: "⌘ + Option + g"
