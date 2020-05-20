@@ -596,6 +596,85 @@ const websiteShortcutMapping = {
       text: "Open the filter menu in the current view",
       command: `keystroke "f" using {command down, shift down}`,
       shortcut: "Command - Shift - F"
+    },
+    {
+      text: "Open the grouped records menu",
+      command: `keystroke "d" using {command down, shift down}`,
+      shortcut: "Command - Shift - D"
+    },
+    {
+      text: "Open the sort menu in the current view",
+      command: `keystroke "s" using {command down, shift down}`,
+      shortcut: "Command - Shift - s"
+    },
+    {
+      text: "Toggle blocks",
+      command: `keystroke "\\" using {command down, shift down}`,
+      shortcut: "Command - Shift - \\"
+    },
+    {
+      text: "Set the selected date field to now",
+      command: `key code "41" using {command down}`,
+      shortcut: "Command + ;"
+    },
+    //the following are grid view shortcuts
+    {
+      text: "Expand the selected record",
+      command: `key code "49"`,
+      shortcut: "space"
+    },
+    {
+      text: "Jump to the edge of the table (right)",
+      command: `key code "124" using {command down}`,
+      shortcut: "Command + Right Arrow",
+      tags:"end"
+    },
+    {
+      text: "Jump to the edge of the table (left)",
+      command: `key code "123" using {command down}`,
+      shortcut: "Command + Left Arrow",
+      tags:"beginning"
+    },
+    {
+      text: "Jump to the edge of the table (top)",
+      command: `key code "126" using {command down}`,
+      shortcut: "Command + Up Arrow",
+      tags:"end"
+    },
+    {
+      text: "Jump to the edge of the table (bottom)",
+      command: `key code "125" using {command down}`,
+      shortcut: "Command + Down Arrow",
+      tags:"beginning"
+    },
+    {
+      text: "Jump and to the end (right) and select cells",
+      command: `key code "124" using {command down, shift down}`,
+      shortcut: "Command + Shift + Right Arrow",
+      tags:"end"
+    },
+    {
+      text: "Jump and to the end (left) and select cells",
+      command: `key code "123" using {command down, shift down}`,
+      shortcut: "Command + Shift + Left Arrow",
+      tags:"beginning"
+    },
+    {
+      text: "Jump and to the end (top) and select cells",
+      command: `key code "126" using {command down, shift down}`,
+      shortcut: "Command + Shift + Up Arrow",
+      tags:"end"
+    },
+    {
+      text: "Jump and to the end (bottom) and select cells",
+      command: `key code "125" using {command down, shift down}`,
+      shortcut: "Command + Shift + Down Arrow",
+      tags:"beginning"
+    },
+    {
+      text: "Insert record below the selected cell",
+      command: `key code "36" using {shift down}`,
+      shortcut: "Shift + Enter"
     }
   ]
 }
