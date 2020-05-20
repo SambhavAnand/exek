@@ -93,11 +93,6 @@ const notionShortcuts = [
         text: "Create a new page",
         command: `keystroke "9" using {command down, option down}`,
         shortcut: "Command + Option + 9"
-    },
-    {
-        text: "Bullet new",
-        command: `keystroke "/bullet"`,
-        shortcut: "/bullet" 
     }
 ]
 module.exports = {
