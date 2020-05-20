@@ -1,9 +1,8 @@
 const applescript = require('applescript')
 
 const errors = require('../errors')
-const { allShortcuts } = require('../shortcuts')
 
-function isValidWindow() {
+function getAppName() {
     const activeWindowQstr = `tell application "System Events"
     set activeApp to name of first application process whose frontmost is true
     return activeApp
@@ -13,15 +12,12 @@ function isValidWindow() {
         applescript.execString(activeWindowQstr, function (err, app) {
             if (err)
                 reject(errors['APPLESCRIPT'])
-            else if (app in allShortcuts)
+            else
                 resolve(app)
-            else {
-                reject(errors['UNSUPPORTED_APP'])
-            }
         })
     })
 }
 
 module.exports = {
-    isValidWindow
+    getAppName
 }

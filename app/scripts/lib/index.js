@@ -1,4 +1,4 @@
-const verify = require('./verify-valid')
+const verify = require('./verification')
 const execCommand = require('./execute-command')
 const generateShortcuts = require('./generate-shortcuts')
 

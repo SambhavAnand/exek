@@ -9,26 +9,41 @@ let allShortcuts;
 let currentAppShorcuts;
 var index;
 var liSelected;
+let systemShortcuts = []
+let currentAppName = ''
+//We can dynamically update this later
+let systemName = "MacOS"
 
 ipcRenderer.on("initialize", (event) => {
   currentAppShorcuts = [];
   index = -1;
-  search.value = ''
+  search.value = '',
+  currentAppName = ''
 })
 
 ipcRenderer.on("updateData", (event, shortcuts) => {
   allShortcuts = Object.assign({}, shortcuts)
+  systemShortcuts = [...shortcuts[systemName]]
 })
 
 ipcRenderer.on("appShortcuts", (event, appName) => {
   //Make the cursor automatically enter the search bar
   search.focus()
-  generateShortcuts(allShortcuts, appName)
-  .then(shortcuts => {
+  currentAppName = appName
+  //Display the applications shortcuts
+  if(appName in allShortcuts) {
+    generateShortcuts(allShortcuts, appName)
+    .then(shortcuts => {
     //initial render here
-    outputHTML(shortcuts)
-    currentAppShorcuts = Object.assign({}, shortcuts);
-  })
+      currentAppShorcuts = Object.assign({}, shortcuts);
+      outputHTML(shortcuts)
+    })
+  }
+  //One Still Wants to output MacOS Shortcuts
+  else {
+    outputHTML({})
+  }
+  
 })
 
 
@@ -77,7 +92,9 @@ const outputHTML = matches => {
     }
   */
     
-    const matchKeys = Object.keys(matches)
+    let matchesWithSystem = {...matches}
+    matchesWithSystem[systemName] = systemShortcuts
+    const matchKeys = Object.keys(matchesWithSystem)
     let html = ''
     if(matchKeys.length > 0) {
       matchKeys.forEach(header => {
@@ -86,7 +103,7 @@ const outputHTML = matches => {
         //then a docs.google.com header and all results for it etc...
         //If we go with that then we'll need to print it all out before line 77 (matches[header].forEach)
         //else we can let it be where it is (on line 81 ) but will probably need to add a different styling to it
-        matches[header].forEach(match => {
+        matchesWithSystem[header].forEach(match => {
           html += `
             <ul class="entry-styling">
               <div class="shortcut-container">
@@ -147,7 +164,7 @@ document.addEventListener('keydown', function(event) {
       if(liSelected) {
         const metadata = liSelected.getElementsByClassName('shortcut-cmd')[0].innerHTML
         const [command, appName] = metadata.split(';')
-        execCommand.execCommand(appName, command)
+        execCommand.execCommand(currentAppName, command)
       }
     }
     else if (event.which === 38) {

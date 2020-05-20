@@ -1,4 +1,3 @@
-// const { allShortcuts } = require('../shortcuts')
 const applescript = require('applescript')
 
 

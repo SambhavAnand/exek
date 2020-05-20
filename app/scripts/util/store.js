@@ -47,7 +47,6 @@ class ShortcutsStore extends EventEmitter{
                     //Data was found in the path
                     const data = JSON.parse(fs.readFileSync(filePath))
                     resolve(data['allShortcuts'])
-                    console.log(data['allShortcuts']['Microsoft Word'])
                     //Check for any new updates and update the local store accordingly
                     const qs = querystring.stringify({lastUpdatedTime: data['lastUpdatedTime']})
 
@@ -57,7 +56,6 @@ class ShortcutsStore extends EventEmitter{
                         //New Data is available, update the local data store
                         if(serverData['type'] === 'NEW_DATA_AVAILABLE') {
                             console.log(serverData['type'], "Updating local file store")
-                            console.log(serverData['shortcuts'])
                             const fileData = {allShortcuts: serverData['shortcuts'], lastUpdatedTime: serverData['newUpdatedTime']}
                             emit("newDataAvailable", fileData['allShortcuts'])
                             writeToFileAsync(filePath, fileData)
