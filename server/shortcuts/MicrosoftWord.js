@@ -1,9 +1,9 @@
 const wordShortcuts = [
     {
-        text: "Undo the previous action",
-        command: `keystroke "z" using {command down}`,
-        shortcut: "⌘ + z"
-    },
+        "text": "Undo the previous action.",
+        "shortcut": "⌘ + Z",
+        "command": "keystroke \"Z\" using {command down}"
+      },
     {
         text: "Redo the previous action",
         command: `keystroke "y" using {command down}`,
