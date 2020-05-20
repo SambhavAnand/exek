@@ -64,7 +64,7 @@ const wordShortcuts = [
     {
         "text": "Move the cursor to the beginning of the document.",
         "shortcut": "⌘ + Home",
-        "command": "keystroke \"Home\" using {command down}"
+        "command": "key code \"123\" using {command down, control down}"
     }
 ]
 
