@@ -99,7 +99,7 @@ const notionShortcuts = [
         command: `keystroke "/bullet"`,
         shortcut: "/bullet" 
     }
-    
-    module.exports = {
-        notionShortcuts
-    }
+]
+module.exports = {
+    notionShortcuts
+}
