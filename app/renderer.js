@@ -71,7 +71,7 @@ const searchShortcuts = async searchText => {
       let filteredData = []
       let headerData = currentAppShorcuts[header]
       filteredData = headerData.filter(item => {
-        const regex = new RegExp(`^${searchText}`, 'gi');
+        const regex = new RegExp(`${searchText}`, 'gi');
         return item.text.match(regex) || item.shortcut.match(regex) || (item.tags?item.tags.match(regex):false ) || header.match(regex)
       })
       if(filteredData.length !== 0)
