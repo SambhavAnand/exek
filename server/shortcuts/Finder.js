@@ -56,8 +56,8 @@ const finderShortcuts = [
   },
   {
     text: "Open the Downloads folder",
-    command: `keystroke "l" using {command down, shift down}`,
-    shortcut: "Command - Shift - L",
+    command: `keystroke "l" using {command down, option down}`,
+    shortcut: "Command - Option - L",
   },
   {
     text: "Create a new folder",
