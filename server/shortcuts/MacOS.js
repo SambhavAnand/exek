@@ -6,12 +6,12 @@ const macShortcuts = [
     },
     {
         text: "Switch to the next most recently used app",
-        command: `key code "48" using {comman down}`,
+        command: `key code "48" using {command down}`,
         shortcut: "⌘ + tab"
     },
     {
         text: "Screenshot/Screen Recording",
-        command: `keystroke "5" using {command down, shfit down}`,
+        command: `keystroke "5" using {command down, shift down}`,
         shortcut: "⌘ + shift + 5"
     },
     {
