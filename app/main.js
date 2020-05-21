@@ -14,7 +14,9 @@ function toggleWindow() {
         win.hide()
     }
     else {
-        win.show()
+        win.setVisibleOnAllWorkspaces(true);
+        win.show();
+        win.setVisibleOnAllWorkspaces(false);
     }
 }
 
