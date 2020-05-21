@@ -1,8 +1,6 @@
 const { app, BrowserWindow, globalShortcut, Menu, Tray, ipcMain, screen } = require('electron')
-
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
-
 const {ShortcutsStore} = require('./scripts/util')
 
 
@@ -24,9 +22,10 @@ function toggleWindow() {
 app.on("ready", () => {
     const { width, height } = screen.getPrimaryDisplay().workAreaSize
     win = new BrowserWindow({ 
-        width: .3*width, 
-        height: .4*height,
+        width: 550, 
+        height: 380,
         frame:false, 
+        resizable: false,
         transparent: true,
         webPreferences:{
             nodeIntegration: true
@@ -36,7 +35,6 @@ app.on("ready", () => {
     
     win.loadURL(`file://${__dirname}/index.html`)
     
-    win.webContents.toggleDevTools()
     win.on('ready-to-show', () => {
         store.getShortcuts()
         .then(data => win.webContents.send('updateData', data))
@@ -47,6 +45,15 @@ app.on("ready", () => {
         toggleWindow()
         if (!ret) {
             console.log('registration failed')
+          }  
+    });
+
+    //DEV TOOLS TOGGLE SHORT CUT - Remove for shipping 
+    const ret2 = globalShortcut.register('Ctrl+x', () => {
+        win.webContents.toggleDevTools()
+        win.setResizable(true);
+        if (!ret2) {
+            console.log('registration for dev tools failed')
           }  
     });
     const tray = new Tray('./iconTemplate.png');
