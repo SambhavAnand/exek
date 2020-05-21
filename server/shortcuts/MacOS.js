@@ -1,6 +1,6 @@
 const macShortcuts = [
     {
-        text: "Make the app full screen",
+        text: "Toggle full screen",
         command: `keystroke "f" using {command down, control down}`,
         shortcut: '⌘ + control + f'
     },

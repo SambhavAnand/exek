@@ -3,7 +3,7 @@ const path = require('path')
 
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
-const {ShortcutsStore} = require('./scripts/util')
+const { ShortcutsStore  } = require('./scripts/util')
 
 const iconPath = app.isPackaged ? path.join(process.resourcesPath, "resources/IconTemplate.png") : "./assets/IconTemplate.png";
 
