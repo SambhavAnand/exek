@@ -14,7 +14,7 @@ const NO_ELEMENTS_PER_PAGE = 12;
 let systemName = "MacOS"
 
 ipcRenderer.on("initialize", (event) => {
-  currentAppShorcuts = [];
+  currentAppShorcuts = {};
   index = -1;
   search.value = '',
   currentAppName = ''
@@ -22,6 +22,7 @@ ipcRenderer.on("initialize", (event) => {
 
 ipcRenderer.on("updateData", (event, shortcuts) => {
   allShortcuts = Object.assign({}, shortcuts)
+  //These won't change throughout so save this
   systemShortcuts = [...shortcuts[systemName]]
 })
 
@@ -35,12 +36,14 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
     .then(shortcuts => {
     //initial render here
       currentAppShorcuts = Object.assign({}, shortcuts);
-      outputHTML(shortcuts)
+      currentAppShorcuts[systemName] = systemShortcuts
+      outputHTML(currentAppShorcuts)
     })
   }
   //One Still Wants to output MacOS Shortcuts
   else {
-    outputHTML({})
+    currentAppShorcuts[systemName] = systemShortcuts
+    outputHTML(currentAppShorcuts)
   }
   
 })
@@ -48,6 +51,7 @@ ipcRenderer.on("appShortcuts", (event, appName) => {
 
 //TODO: Change styling for the case when app is not supported
 ipcRenderer.on("error", (event, error) => {
+  console.log(event, error)
   const errorHtml = `
             <div class="shortcut-container" style="align-items : center">
             <p class= "shortcut-description">${error.msg}</h5>
@@ -77,7 +81,7 @@ const searchShortcuts = async searchText => {
         //need to change this to include top 5/10 shortcuts
         matches = Object.assign({}, currentAppShorcuts);
     }
-   outputHTML(matches);
+    outputHTML(matches)
 };
 
 const outputHTML = matches => {
@@ -91,18 +95,11 @@ const outputHTML = matches => {
     }
   */
     
-    let matchesWithSystem = {...matches}
-    matchesWithSystem[systemName] = systemShortcuts
-    const matchKeys = Object.keys(matchesWithSystem)
+    const matchKeys = Object.keys(matches)
     let html = ''
     if(matchKeys.length > 0) {
       matchKeys.forEach(header => {
-        //On line 81 we are printing the header, (Google Chrome, docs.googel.com etc)
-        //But it would be nice if we can create sections. like a google chrome header, then all the results for it
-        //then a docs.google.com header and all results for it etc...
-        //If we go with that then we'll need to print it all out before line 77 (matches[header].forEach)
-        //else we can let it be where it is (on line 81 ) but will probably need to add a different styling to it
-        matchesWithSystem[header].forEach(match => {
+        matches[header].forEach(match => {
           html += `
             <ul class="entry-styling">
             <div class="shortcut-container-full">
