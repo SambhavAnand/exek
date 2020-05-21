@@ -1,7 +1,5 @@
 const { ipcRenderer, remote, shell } = require("electron")
-
 const { generateShortcuts, execCommand } = require('./scripts/lib')
-
 const search = document.getElementById('search');
 const matchList = document.getElementById('match-list')
 
@@ -11,6 +9,7 @@ var index;
 var liSelected;
 let systemShortcuts = []
 let currentAppName = ''
+const NO_ELEMENTS_PER_PAGE = 12;
 //We can dynamically update this later
 let systemName = "MacOS"
 
@@ -106,11 +105,13 @@ const outputHTML = matches => {
         matchesWithSystem[header].forEach(match => {
           html += `
             <ul class="entry-styling">
-              <div class="shortcut-container">
-                <p class="shortcut-description">${match.text}</p>
-                <p class="shortcut">${match.shortcut}</p> 
+            <div class="shortcut-container-full">
+                <div class="shortcut-container">
+                  <p class="shortcut-description">${match.text}</p>
+                  <p class="shortcut">${match.shortcut}</p> 
+                </div>
+                <p class="app-name">${header}</p>
               </div>
-              <p class="app-name">${header}</p>
               <p class="shortcut-cmd">${match.command};${match.app_name}</p>
             </ul>
           `
@@ -157,16 +158,17 @@ document.addEventListener('keydown', function(event) {
         addClass(liSelected, 'selected');
       }
     }
-    //case when enter is hit - execute the Apple Script
+    //Key Press Enter 
     else if (event.which == 13) {
       if(liSelected) {
         const metadata = liSelected.getElementsByClassName('shortcut-cmd')[0].innerHTML
         const [command, appName] = metadata.split(';')
+        console.log(metadata);
         execCommand.execCommand(currentAppName, command)
       }
   }
   else if (event.which === 38) {
-    //up
+    //Key Press Up
       if (liSelected) {
         search.blur()
         removeClass(liSelected, 'selected');
@@ -202,11 +204,32 @@ function removeClass(el, className) {
         el.className = el.className.replace(new RegExp('(^|\\b)' + className.split(' ').join('|') + '(\\b|$)', 'gi'), ' ');
     }
 };
+function returnOffsetY(el){
+  var bodyRect = document.body.getBoundingClientRect();
+  var elemRect = el.getBoundingClientRect();
+  console.log((elemRect.bottom - bodyRect.top));
+  return (elemRect.bottom - bodyRect.top);
+}
+
+function scrollToTargetAdjusted(el){
+  var headerOffset = 45;
+  var elementPosition = el.getBoundingClientRect();
+  var offsetPosition = elementPosition - headerOffset;
+
+  window.scrollTo({
+       top: offsetPosition,
+       behavior: "smooth"
+  });
+}
 
 function addClass(el, className) {
-    if(el.classList) {
-        el.classList.add(className);
-    } else {
-        el.className += ' ' + className;
-    }
+  if(returnOffsetY(el) > 380){
+    el.scrollIntoView(false);
+  }
+  if(el.classList) {
+      el.classList.add(className);
+    } 
+  else {
+      el.className += ' ' + className;
+  }
 };
