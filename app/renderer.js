@@ -105,13 +105,11 @@ const outputHTML = matches => {
         matchesWithSystem[header].forEach(match => {
           html += `
             <ul class="entry-styling">
-            <div class="shortcut-container-full">
                 <div class="shortcut-container">
                   <p class="shortcut-description">${match.text}</p>
                   <p class="shortcut">${match.shortcut}</p> 
                 </div>
                 <p class="app-name">${header}</p>
-              </div>
               <p class="shortcut-cmd">${match.command};${match.app_name}</p>
             </ul>
           `
@@ -223,8 +221,11 @@ function scrollToTargetAdjusted(el){
 }
 
 function addClass(el, className) {
-  if(returnOffsetY(el) > 380){
+  if(returnOffsetY(el) > 325 || returnOffsetY(el) < 55){
     el.scrollIntoView(false);
+    //offset
+    if(returnOffsetY(el) > 55)
+      window.scrollBy({top:108})
   }
   if(el.classList) {
       el.classList.add(className);
