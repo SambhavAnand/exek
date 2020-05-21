@@ -11,7 +11,7 @@ const macShortcuts = [
     },
     {
         text: "Screenshot/Screen Recording",
-        command: `keystroke "5" using {command down, shift down}`,
+        command: `key code "23" using {command down, shift down}`,
         shortcut: "⌘ + shift + 5"
     },
     {
