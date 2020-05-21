@@ -74,11 +74,6 @@ const wordShortcuts = [
     command: 'key code "109" using {shift down}',
   },
   {
-    text: "Display the shortcut menu for the selected item. *",
-    shortcut: "Shift + F10",
-    command: 'key code "109" using {shift down}',
-  },
-  {
     text: "Display the Go To dialog.",
     shortcut: "⌘ + Option + G",
     command: 'keystroke "g" using {command down, option down}',
@@ -124,20 +119,9 @@ const wordShortcuts = [
     command: 'key code "131" using {command down}',
   },
   {
-    text: "Close the current document.",
-    shortcut: "⌘ + F4",
-    command: 'key code "131" using {command down}',
-  },
-  {
     text: "Expand or minimize the ribbon",
     shortcut: "⌘ + Option + R",
     command: 'keystroke "r" using {command down, option down}',
-  },
-  {
-    text:
-      "Find the next spelling or grammatical error. The Check spelling as you type feature must be enabled.",
-    shortcut: "Option + F7",
-    command: 'key code "98" using {option down}',
   },
   {
     text:
@@ -154,11 +138,6 @@ const wordShortcuts = [
     text: "Search for the selected text using the Smart Lookup task pane.",
     shortcut: "⌘ + Control + Option + L",
     command: 'keystroke "l" using {command down, control down, option down}',
-  },
-  {
-    text: "Open the Dictionary.",
-    shortcut: "Option + Shift + F7",
-    command: 'key code "98" using {option down, shift down}',
   },
   {
     text: "Open the Dictionary.",
@@ -214,11 +193,6 @@ const wordShortcuts = [
     text: "Move the cursor to the end of the document.",
     shortcut: "⌘ + End",
     command: 'key code "119" using {command down}',
-  },
-  {
-    text: "Move the cursor to the previous insertion point.",
-    shortcut: "Shift + F5",
-    command: 'key code "96" using {shift down}',
   },
   {
     text: "Move the cursor to the previous insertion point.",
@@ -304,11 +278,6 @@ const wordShortcuts = [
     command: 'key code "100" using {shift down}',
   },
   {
-    text: "Reduce the selection. *",
-    shortcut: "Shift + F8",
-    command: 'key code "100" using {shift down}',
-  },
-  {
     text: "Cut the selected content to the Clipboard.",
     shortcut: "⌘ + X",
     command: 'keystroke "x" using {command down}',
@@ -340,16 +309,6 @@ const wordShortcuts = [
     command: 'key code "160" using {command down}',
   },
   {
-    text: "Cut  the selected content to the Spike.",
-    shortcut: "⌘ + F3",
-    command: 'key code "160" using {command down}',
-  },
-  {
-    text: "Paste the contents of the Spike.",
-    shortcut: "⌘ + Shift + F3",
-    command: 'key code "160" using {command down, shift down}',
-  },
-  {
     text: "Paste the contents of the Spike.",
     shortcut: "⌘ + Shift + F3",
     command: 'key code "160" using {command down, shift down}',
@@ -378,11 +337,6 @@ const wordShortcuts = [
     text: "Insert graphics using the Media Browser.",
     shortcut: "Control + M",
     command: 'keystroke "m" using {control down}',
-  },
-  {
-    text: "Create an AutoText entry.",
-    shortcut: "Option + F3",
-    command: 'key code "160" using {option down}',
   },
   {
     text: "Create an AutoText entry.",
@@ -525,11 +479,6 @@ const wordShortcuts = [
     command: 'key code "160" using {shift down}',
   },
   {
-    text: "Switch the text between upper case, lower case, and title case.",
-    shortcut: "Shift + F3",
-    command: 'key code "160" using {shift down}',
-  },
-  {
     text: "Change the text to all upper case.",
     shortcut: "⌘ + Shift + A",
     command: 'keystroke "a" using {command down, shift down}',
@@ -583,11 +532,6 @@ const wordShortcuts = [
     text: "Remove manual character formatting.",
     shortcut: "⌘ + Shift + Z",
     command: 'keystroke "z" using {command down, shift down}',
-  },
-  {
-    text: "Insert an empty field.",
-    shortcut: "⌘ + F9",
-    command: 'key code "101" using {command down}',
   },
   {
     text: "Insert an empty field.",
@@ -705,16 +649,6 @@ const wordShortcuts = [
     command: 'key code "101" using {command down}',
   },
   {
-    text: "Insert an empty field.",
-    shortcut: "⌘ + F9",
-    command: 'key code "101" using {command down}',
-  },
-  {
-    text: "Unlink a field.",
-    shortcut: "⌘ + Shift + F9",
-    command: 'key code "101" using {command down, shift down}',
-  },
-  {
     text: "Unlink a field.",
     shortcut: "⌘ + Shift + F9",
     command: 'key code "101" using {command down, shift down}',
@@ -723,16 +657,6 @@ const wordShortcuts = [
     text: "Switch between a field code and its result. *",
     shortcut: "Shift + F9",
     command: 'key code "101" using {shift down}',
-  },
-  {
-    text: "Switch between a field code and its result. *",
-    shortcut: "Shift + F9",
-    command: 'key code "101" using {shift down}',
-  },
-  {
-    text: "Switch between all field codes and their results.",
-    shortcut: "Option + F9",
-    command: 'key code "101" using {option down}',
   },
   {
     text: "Switch between all field codes and their results.",
@@ -746,17 +670,6 @@ const wordShortcuts = [
     command: 'key code "101" using {option down, shift down}',
   },
   {
-    text:
-      "Run GOTOBUTTON or MACROBUTTON from a field displaying field results.",
-    shortcut: "Option + Shift + F9",
-    command: 'key code "101" using {option down, shift down}',
-  },
-  {
-    text: "Go to the previous field.",
-    shortcut: "Shift + F11",
-    command: 'key code "103" using {shift down}',
-  },
-  {
     text: "Go to the previous field.",
     shortcut: "Shift + F11",
     command: 'key code "103" using {shift down}',
@@ -765,16 +678,6 @@ const wordShortcuts = [
     text: "Lock a field.",
     shortcut: "⌘ + F11",
     command: 'key code "103" using {command down}',
-  },
-  {
-    text: "Lock a field.",
-    shortcut: "⌘ + F11",
-    command: 'key code "103" using {command down}',
-  },
-  {
-    text: "Unlock a field.",
-    shortcut: "⌘ + Shift + F11",
-    command: 'key code "103" using {command down, shift down}',
   },
   {
     text: "Unlock a field.",
