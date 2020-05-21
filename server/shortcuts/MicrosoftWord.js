@@ -155,14 +155,16 @@ const wordShortcuts = [
     command: 'key code "124" using {option down}',
   },
   {
-    text: "Move the cursor up by one paragraph.",
+    text: "Cursor Para Up",
     shortcut: "⌘ + Up arrow ",
     command: 'key code "126" using {command down}',
+    tags: 'move'
   },
   {
-    text: "Move the cursor down by one paragraph.",
+    text: "Cursor Para down",
     shortcut: "⌘ + Down arrow ",
     command: 'key code "125" using {command down}',
+    tags: 'move'
   },
   {
     text: "Move the cursor to the beginning of the current line.",

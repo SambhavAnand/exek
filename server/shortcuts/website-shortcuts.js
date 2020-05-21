@@ -676,6 +676,75 @@ const websiteShortcutMapping = {
       command: `key code "36" using {shift down}`,
       shortcut: "Shift + Enter"
     }
+  ],
+  'calendar.google.com': [
+    {
+      text: 'Change calendar view',
+      command: `keystroke "n"`,
+      shortcut: "n"
+    },
+    {
+      text: 'Current Day',
+      command: `keystroke "t"`,
+      shortcut: "t",
+      tags: "today"
+    },
+    {
+      text: 'Search',
+      command: `keystroke "/"`,
+      shortcut: "/",
+      tags: "lookup,find"
+    },
+    {
+      text: "Settings",
+      command: `keystroke "s"`,
+      shortcut: "s"
+    },
+    {
+      text: "Day view",
+      command: `keystroke "1"`,
+      shortcut: "1",
+      tags: "change"
+    },
+    {
+      text: "Week view",
+      command: `keystroke "2"`,
+      shortcut: "2",
+      tags: "change"
+    },
+    {
+      text: "Month view",
+      command: `keystroke "3"`,
+      shortcut: "3",
+      tags: "change"
+    },
+    {
+      text: "Custom view",
+      command: `keystroke "4"`,
+      shortcut: "4",
+      tags: "change"
+    },
+    {
+      text: "Agenda view",
+      command: `keystroke "5"`,
+      shortcut: "5",
+      tags: "change"
+    },
+    {
+      text: "Create event",
+      command: `keystroke "c"`,
+      shortcut: "c"
+    },
+    {
+      text: "See event details",
+      command: `keystroke "e"`,
+      shortcut: "e"
+    },
+    {
+      text: "Delete an event",
+      command: `key code "51"`,
+      shortcut: "Delete"
+    }
   ]
 }
 
