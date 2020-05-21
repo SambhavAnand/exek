@@ -102,13 +102,11 @@ const outputHTML = matches => {
         matches[header].forEach(match => {
           html += `
             <ul class="entry-styling">
-            <div class="shortcut-container-full">
                 <div class="shortcut-container">
                   <p class="shortcut-description">${match.text}</p>
                   <p class="shortcut">${match.shortcut}</p> 
                 </div>
                 <p class="app-name">${header}</p>
-              </div>
               <p class="shortcut-cmd">${match.command};${match.app_name}</p>
             </ul>
           `
@@ -117,8 +115,8 @@ const outputHTML = matches => {
     }
     else {
       html = `
-        <div class="card card-body mb-1">
-        <h5>No shortcuts match your search</h5>
+        <div class="shortcut-container-null">
+          <p class="shortcut-null">No shortcuts match your search</p>
         </div>
       `
     }
@@ -220,8 +218,11 @@ function scrollToTargetAdjusted(el){
 }
 
 function addClass(el, className) {
-  if(returnOffsetY(el) > 380){
+  if(returnOffsetY(el) > 280 || returnOffsetY(el) < 55){
     el.scrollIntoView(false);
+    //offset
+    if(returnOffsetY(el) > 55)
+      window.scrollBy({top:108})
   }
   if(el.classList) {
       el.classList.add(className);
