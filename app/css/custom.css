@@ -19,7 +19,6 @@ body {
 #search{
     border: none;
     caret-color: #00FEDE ;
-    box-shadow:  0px 2px 2px #00FEDE    
 
 }
 .search-wrapper{
@@ -35,9 +34,10 @@ body {
     overflow: hidden;
 }
 .selected {
-    box-shadow:  0px 2px 2px #00FEDE    /* border-top: 2px ridge #00FEDE;
+    box-shadow:  0px 2px 2px #00FEDE;   /* border-top: 2px ridge #00FEDE;
     border-bottom: 2px ridge #00FEDE; */
     /* outline: solid 2px #00FEDE; */
+    font-size: 15px;
 }
 #match-list{
     margin-top: 52px;
@@ -88,7 +88,6 @@ body {
 }
 
 .shortcut-description {
-    font-size: 14px;
     flex: 1;
     display: inline;
     color: #fff;
