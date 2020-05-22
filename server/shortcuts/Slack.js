@@ -19,7 +19,4 @@ const slackShortcuts = [
         command: `keystroke "l" using {command down, shift down}`,
         shorcut: "Command + Shift + L"
     },
-    {
-        text: "mew"
-    }
 ]
