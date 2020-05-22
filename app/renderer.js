@@ -15,7 +15,7 @@ let systemName = "MacOS"
 
 ipcRenderer.on("initialize", (event) => {
   currentAppShorcuts = {};
-  index = -1;
+  index = 0;
   search.value = '',
   currentAppName = ''
 })
@@ -64,7 +64,7 @@ ipcRenderer.on("error", (event, error) => {
 //search the shortcuts and filter it
 
 const searchShortcuts = async searchText => {
-  index = -1;
+  index = 0;
 //Get Matches to ciurrent text input
     let matches = {}
     Object.keys(currentAppShorcuts).forEach(header => {
@@ -82,6 +82,7 @@ const searchShortcuts = async searchText => {
         matches = Object.assign({}, currentAppShorcuts);
     }
     outputHTML(matches)
+
 };
 
 const outputHTML = matches => {
@@ -121,6 +122,12 @@ const outputHTML = matches => {
       `
     }
     matchList.innerHTML = html
+    var ul = document.getElementById('match-list');
+    var len = ul.getElementsByTagName('ul').length-1;
+    if  (len>0) {
+      liSelected = ul.getElementsByTagName('ul')[0]
+      addClass(liSelected, 'selected')
+    }
 }
 search.addEventListener('input', ()=> searchShortcuts(search.value))
 

@@ -69,13 +69,13 @@ app.on("ready", () => {
     });
 
     //DEV TOOLS TOGGLE SHORT CUT - Remove for shipping 
-    const ret2 = globalShortcut.register('Ctrl+x', () => {
-        win.webContents.toggleDevTools()
-        win.setResizable(true);
-        if (!ret2) {
-            console.log('registration for dev tools failed')
-          }  
-    });
+    // const ret2 = globalShortcut.register('Ctrl+x', () => {
+    //     win.webContents.toggleDevTools()
+    //     win.setResizable(true);
+    //     if (!ret2) {
+    //         console.log('registration for dev tools failed')
+    //       }  
+    // });
     
     const tray = new Tray(iconPath);
     const contextMenu = Menu.buildFromTemplate([
@@ -102,11 +102,16 @@ app.on("ready", () => {
         }
     ]);
     tray.setContextMenu(contextMenu);
-    tray.on('click', () => console.log("clicked"))
+    app.dock.hide()
     const mb = menubar({
         tray,
     });
+    mb.on('after-show', () => {
+        mb._isVisible = true;
+        mb.window.hideWindow()
+    })
 });
+
 
 
 shortcutsStore.on('newDataAvailable', (newData) => {

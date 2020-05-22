@@ -40,3 +40,6 @@ Email @ arman.jindal@columbia.edu or @ sambhav182@gmail.com
     * Temporality and Locality to "cache" likely shortcuts
 * Menu bar organizes all shortcuts - like the iMessage contact list
 * Links to documentation for shortcuts easily accessible
+
+### Common Problems and Solutions
+#### The search bar shows up, the shortcuts show up, but the command doesn't run when I hit return/enter
