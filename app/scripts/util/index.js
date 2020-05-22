@@ -1,5 +1,6 @@
-const ShortcutsStore = require('./store')
+const { ShortcutsStore, Store }= require('./store')
 
 module.exports = {
-    ShortcutsStore
+    ShortcutsStore,
+    Store
 }

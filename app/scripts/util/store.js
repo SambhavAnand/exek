@@ -9,11 +9,25 @@ const querystring = require('querystring')
 
 const serverURL = process.env.serverURL || "https://shortcuts-search.herokuapp.com"
 
-function writeToFileAsync(filePath, data) {
-    fs.writeFile(filePath, JSON.stringify(data), function (err) {
-        if(err)
-            console.log("Error while writing to file", err)
-    })
+function writeToFile(filePath, data, type) {
+    if(type==='ASYNC') {
+        fs.writeFile(filePath, JSON.stringify(data), function (err) {
+            if(err)
+                console.log("Error while writing to file", err)
+        })
+    }
+    else {
+        fs.writeFileSync(filePath, JSON.stringify(data))
+    }
+}
+
+function readFileSync(filePath, defaultRetVal) {
+    try {
+        return JSON.parse(fs.readFileSync(filePath))
+    }
+    catch (error) {
+        return defaultRetVal
+    }
 }
 
 class ShortcutsStore extends EventEmitter{
@@ -39,13 +53,14 @@ class ShortcutsStore extends EventEmitter{
                         const fileData = {allShortcuts: data['shortcuts'], lastUpdatedTime: data['newUpdatedTime']}
                         resolve(fileData['allShortcuts'])
                         //Asynchronously write the data. Think about whether this error needs to be handled
-                        writeToFileAsync(filePath, fileData)
+                        writeToFile(filePath, fileData, 'ASYNC')
                     })
                     .catch(error => reject(error))
                 }   
                 else {
                     //Data was found in the path
-                    const data = JSON.parse(fs.readFileSync(filePath))
+                    const data = readFileSync(filePath)
+                    // const data = JSON.parse(fs.readFileSync(filePath))
                     resolve(data['allShortcuts'])
                     //Check for any new updates and update the local store accordingly
                     const qs = querystring.stringify({lastUpdatedTime: data['lastUpdatedTime']})
@@ -58,7 +73,7 @@ class ShortcutsStore extends EventEmitter{
                             console.log(serverData['type'], "Updating local file store")
                             const fileData = {allShortcuts: serverData['shortcuts'], lastUpdatedTime: serverData['newUpdatedTime']}
                             emit("newDataAvailable", fileData['allShortcuts'])
-                            writeToFileAsync(filePath, fileData)
+                            writeToFile(filePath, fileData, 'ASYNC')
                         }
                     })
                     .catch(error => console.log('Error occurred', error))
@@ -66,7 +81,31 @@ class ShortcutsStore extends EventEmitter{
             })
         })
     }
-
 }
 
-module.exports = ShortcutsStore
+class Store {
+    constructor(options) {
+        this.dataPath = (app.getPath('userData') || remote.getPath('userData'))
+        this.filePath = path.join(this.dataPath, `${options.settingName}.json`)
+        this.data = readFileSync(this.filePath, options.default)
+    }
+    get = (key) => {
+        if (key in this.data) {
+            return this.data[key]
+        }
+        else {
+            return null
+        }
+    }
+    put = (kvPairs) => {
+        kvPairs.forEach(kvPair => {
+            this.data[kvPair['key']] = kvPair['val']
+        })
+        writeToFile(this.filePath, this.data, 'SYNC')
+    }
+}
+
+module.exports = {
+    ShortcutsStore, 
+    Store
+}

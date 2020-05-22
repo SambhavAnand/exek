@@ -3,15 +3,16 @@ const path = require('path')
 
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
-const { ShortcutsStore  } = require('./scripts/util')
+const { ShortcutsStore, Store } = require('./scripts/util')
 
 const iconPath = app.isPackaged ? path.join(process.resourcesPath, "resources/IconTemplate.png") : "./assets/IconTemplate.png";
 
 //write function with min/max limits so that the size of the window is always resonable
-//Local Shortcut store
-const store = new ShortcutsStore()
+//Local Shortcut shortcutsStore
+const shortcutsStore = new ShortcutsStore()
+const userOptionsStore = new Store({settingName: 'useroptions', default: {firstStartup: true}})
 
-
+const firstStartup = userOptionsStore.get('firstStartup')
 
 let win; 
 function toggleWindow() {
@@ -26,7 +27,19 @@ function toggleWindow() {
 }
 
 
+
+const getCurrentOpenAtLoginVal = () => app.getLoginItemSettings().openAtLogin
+
 app.on("ready", () => {
+    
+    if(firstStartup) {
+        app.setLoginItemSettings({ openAtLogin: true })
+        userOptionsStore.put([{key: 'firstStartup', val: false}, {key: 'openAtLogin', val: true}])
+    }
+    else {
+        userOptionsStore.put([{key: 'openAtLogin', val: getCurrentOpenAtLoginVal()}])
+    }
+
     const { width, height } = screen.getPrimaryDisplay().workAreaSize
     win = new BrowserWindow({ 
         width: 550, 
@@ -43,7 +56,7 @@ app.on("ready", () => {
     win.loadURL(`file://${__dirname}/index.html`)
     
     win.on('ready-to-show', () => {
-        store.getShortcuts()
+        shortcutsStore.getShortcuts()
         .then(data => win.webContents.send('updateData', data))
         .catch(error => console.log(error))
     })
@@ -76,6 +89,16 @@ app.on("ready", () => {
             label: "Quit", click: ()=> {
                 app.quit()
             }
+        },
+        {
+            label: "Open at startup",
+            checked: getCurrentOpenAtLoginVal(),
+            type: 'checkbox',
+            click: () => {
+                let currentVal = getCurrentOpenAtLoginVal();
+                app.setLoginItemSettings({openAtLogin: !currentVal})
+                userOptionsStore.put([{key: 'openAtLogin', val: !currentVal}])
+            }
         }
     ]);
     tray.setContextMenu(contextMenu);
@@ -83,11 +106,10 @@ app.on("ready", () => {
     const mb = menubar({
         tray,
     });
-    
-
 });
 
-store.on('newDataAvailable', (newData) => {
+
+shortcutsStore.on('newDataAvailable', (newData) => {
     //New Data is available
     if(win)
         win.webContents.send('updateData', newData)
