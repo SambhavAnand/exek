@@ -5,7 +5,7 @@ const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
 const { ShortcutsStore, Store } = require('./scripts/util')
 
-const iconPath = app.isPackaged ? path.join(process.resourcesPath, "resources/IconTemplate.png") : "./assets/IconTemplate.png";
+const iconPath = app.isPackaged ? path.join(process.resourcesPath, "resources/iconTemplate.png") : "./assets/iconTemplate.png";
 
 //write function with min/max limits so that the size of the window is always resonable
 //Local Shortcut shortcutsStore
@@ -69,13 +69,13 @@ app.on("ready", () => {
     });
 
     //DEV TOOLS TOGGLE SHORT CUT - Remove for shipping 
-    const ret2 = globalShortcut.register('Ctrl+x', () => {
-        win.webContents.toggleDevTools()
-        win.setResizable(true);
-        if (!ret2) {
-            console.log('registration for dev tools failed')
-          }  
-    });
+    // const ret2 = globalShortcut.register('Ctrl+x', () => {
+    //     win.webContents.toggleDevTools()
+    //     win.setResizable(true);
+    //     if (!ret2) {
+    //         console.log('registration for dev tools failed')
+    //       }  
+    // });
     
     const tray = new Tray(iconPath);
     const contextMenu = Menu.buildFromTemplate([
