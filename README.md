@@ -50,8 +50,10 @@ To fix this problem, on your mac go to:
 * Toggle the check box next to **Exek**.
 Note: if the box was already checked, and you're facing the problem, try to uncheck the box, and then checking it again. We faced this error
 during testing and rechecking the box fixed the issue.
+If you can't find **Exek** in the Accessibility tab, go to the Automation Tab within Privacy and re-check the box next to "System Events" under
+***Exek**
 
-#### I am getting an unverfied developer error when I open your app
+#### I am getting an unverfied developer error when I open **Exek**
 We know this looks suss. We are working on getting a verified developer account but the process takes some time and we wanted to get this out there
 before. 
 In order to fix this error, on your mac go to:

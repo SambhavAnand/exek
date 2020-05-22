@@ -6,6 +6,7 @@ const { calendarShortcuts } = require('./Calendar')
 const { atomShortcuts } = require('./Atom')
 const { finderShortcuts } = require('./Finder')
 const { safariShortcuts } = require('./Safari')
+const { excelShortcuts } = require('./MicrosoftExcel')
 
 const allShortcuts = {
     "MacOS": macShortcuts,
@@ -15,7 +16,8 @@ const allShortcuts = {
     "Calendar": calendarShortcuts,
     "Atom": atomShortcuts,
     "Finder": finderShortcuts,
-    "Safari": safariShortcuts
+    "Safari": safariShortcuts,
+    "Microsoft Excel": excelShortcuts
 }
 
 module.exports = {
