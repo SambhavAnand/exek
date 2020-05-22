@@ -745,6 +745,83 @@ const websiteShortcutMapping = {
       command: `key code "51"`,
       shortcut: "Delete"
     }
+  ],
+  'github.com': [
+    {
+      text: "Search",
+      command: `keystroke "s"`,
+      shortcut: "s",
+    },
+    {
+      text: "Go to the Code tab",
+      command: `keystroke "g"
+      keystroke "c"`,
+      shortcut: "g + c",
+    },
+    {
+      text: "Go to the Issues Tab",
+      command: `keystroke "g"
+      keystroke "i"`,
+      shortcut: "g + i",
+    },
+    {
+      text: "Go to the Pull Requests tab",
+      command: `keystroke "g"
+      keystroke "p"`,
+      shortcut: "g + p",
+    },
+    {
+      text: "Go to the Projects Tab",
+      command: `keystroke "g"
+      keystroke "b"`,
+      shortcut: "g + b",
+    },
+    {
+      text: "Go to the Wikis tab",
+      command: `keystroke "g"
+      keystroke "w"`,
+      shortcut: "g + w",
+    },
+    {
+      text: "Open Current file in the Edit file tab",
+      command: `keystroke "e"`,
+      shortcut: "e",
+    },
+    {
+      text: "Replace",
+      command: `keystroke "f" using {command down, option down}`,
+      shortcut: "Command - Option - F",
+    },
+    {
+      text: "Replace All",
+      command: `keystroke "f" using {shift down, command down, option down}`,
+      shortcut: "Command - Option - Shift - F",
+    },
+    {
+      text: "Activate file finder",
+      command: `keystroke "t"`,
+      shortcut: "t",
+    },
+    {
+      text: "Jump to line",
+      command: `keystroke "l"`,
+      shortcut: "l",
+    },
+    {
+      text: "Create an issue",
+      command: `keystroke "c"`,
+      shortcut: "c",
+    },
+    {
+      text: "Search pull requests",
+      command: `key code "44" using {command down}`,
+      shortcut: "Command - /",
+    },
+    {
+      text: "Open issue",
+      command: `keystroke "o"`,
+      shortcut: "o",
+    }
   ]
 }
 
