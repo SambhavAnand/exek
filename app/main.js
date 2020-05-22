@@ -1,12 +1,17 @@
 const { app, BrowserWindow, globalShortcut, Menu, Tray, ipcMain, screen } = require('electron')
+const path = require('path')
+
 const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
-const {ShortcutsStore} = require('./scripts/util')
+const { ShortcutsStore  } = require('./scripts/util')
 
+const iconPath = app.isPackaged ? path.join(process.resourcesPath, "resources/IconTemplate.png") : "./assets/IconTemplate.png";
 
 //write function with min/max limits so that the size of the window is always resonable
 //Local Shortcut store
 const store = new ShortcutsStore()
+
+
 
 let win; 
 function toggleWindow() {
@@ -51,15 +56,15 @@ app.on("ready", () => {
     });
 
     //DEV TOOLS TOGGLE SHORT CUT - Remove for shipping 
-    // const ret2 = globalShortcut.register('Ctrl+x', () => {
-    //     win.webContents.toggleDevTools()
-    //     win.setResizable(true);
-    //     if (!ret2) {
-    //         console.log('registration for dev tools failed')
-    //       }  
-    // });
+    const ret2 = globalShortcut.register('Ctrl+x', () => {
+        win.webContents.toggleDevTools()
+        win.setResizable(true);
+        if (!ret2) {
+            console.log('registration for dev tools failed')
+          }  
+    });
     
-    const tray = new Tray('./iconTemplate.png');
+    const tray = new Tray(iconPath);
     const contextMenu = Menu.buildFromTemplate([
         {
             label: "Show/Hide Search Bar",

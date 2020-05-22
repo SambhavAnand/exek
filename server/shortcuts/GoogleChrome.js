@@ -44,7 +44,7 @@ const chromeShortcuts = {
     },
     {
       text: "Close the current window",
-      command: `keystroke "w" using {commad down, shift down}`,
+      command: `keystroke "w" using {command down, shift down}`,
       shortcut: "⌘ + Shift + w",
       tags: "quit"
     },

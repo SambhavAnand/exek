@@ -20,6 +20,22 @@ const appToShortcutGenerator = {
             })
         })
     },
+    "Safari": function(allShortcuts) {
+        const activeSafariString = `tell application "Safari" to return URL of front document`
+        return new Promise(function (resolve, reject) {
+            applescript.execString(activeSafariString, function(err, url) {
+                Object.keys(allShortcuts["Safari"]["inAppShortcuts"]).forEach(key => {
+                    if(url.includes(key)) {
+                        let shortcutWithHeaders = {}
+                        shortcutWithHeaders[key] = allShortcuts["Safari"]["inAppShortcuts"][key].map(
+                            shortcut => ({...shortcut, app_name: "Safari"}))
+                        resolve(shortcutWithHeaders)
+                    }
+                })
+                resolve({"Safari":[]})
+            })
+        })
+    }
 }
 
 function generateShortcuts(allShortcuts, appName) {

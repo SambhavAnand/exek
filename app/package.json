@@ -1,7 +1,7 @@
 {
-  "name": "example",
+  "name": "controlk",
   "version": "1.0.0",
-  "description": "",
+  "description": "Quickly Search and execute shortcuts",
   "main": "main.js",
   "scripts": {
     "start": "electron main.js",
@@ -9,17 +9,26 @@
     "dist": "electron-builder"
   },
   "keywords": [],
-  "author": "",
+  "author": "Arman Jindal & Sambhav Anand",
   "license": "ISC",
   "devDependencies": {
     "electron": "^8.2.5",
     "electron-builder": "^22.6.1"
   },
   "build": {
-    "appId": "yourappid",
+    "appId": "commandk",
     "mac": {
       "category": "public.app.category.productivity"
     },
+    "extraResources": [
+      {
+        "from": "assets",
+        "to": "resources",
+        "filter": [
+            "**/*"
+        ]
+      }
+    ],
     "dmg": {
       "contents": [
         {
