@@ -1,0 +1,55 @@
+ul {
+    align-items: center;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+.bar-text{
+    align-items: center;
+}
+.selected {
+    background-color: rgba(128, 128, 128, 0.404);
+    font-size: 16px;
+}
+
+.shortcut-container {
+    display: flex;
+    margin-bottom: -10px;
+}
+
+.shortcut-cmd {
+    visibility: hidden;
+    font-size: 0px;
+}
+
+.shortcut{
+    border-radius: 3px;
+    display: inline;
+    max-width: 200px;
+    margin-left: 30px;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    background-color: rgba(128, 128, 128, 0.404);
+    color: cadetblue;
+}
+
+.shortcut-description {
+    font-size: 16px;
+    line-height: 20px;
+    letter-spacing: -0.0225em;
+    position: relative;
+    top: 1px;
+    flex: 2 1 auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    max-height: 40px;
+    color: rgb(26, 165, 170);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.app-name{
+    font-size: 10px;
+    color: rgba(128, 128, 128, 0.562);
+}
