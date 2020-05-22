@@ -6,7 +6,7 @@ If you are reading this, you are probably a friend of mine (Arman) or Sambhav. T
 
 The tool - search bar - is pulled up with a with **Ctrl-K** or via the menu bar icon which appears in the top right. The tool detects the programs running in the foreground and loads relevant shorcuts in the search bar. Search is  __fuzzy__ using simple RegularExpression to match the search to shortcuts and their tags (we inted to improve this in the future). Using the key arrows up and down you can navigate the shortcuts and the enter keypress the shortcut is executed (see exmaple below). **Ctrl-K** toggles the window into view. The window can be dragged anywhere in the screen. 
 
-TODO - Add the GIF animation
+<div style="width:360px;max-width:100%;"><div style="height:0;padding-bottom:59.17%;position:relative;"><iframe width="360" height="213" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameBorder="0" src="https://imgflip.com/embed/42eku1"></iframe></div><p><a href="https://imgflip.com/gif/42eku1">via Imgflip</a></p></div>
 
 ## Current Apps/Website Support
 Currently the following are supported: 
