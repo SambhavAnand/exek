@@ -33,7 +33,7 @@ Email @ arman.jindal@columbia.edu
 
 ### Features for Next Version
 * Improved search and ranking of shortcuts.
-  * ML autosuggestion
-  * Temporality and Locality to "cache" likely shortcuts
+    * ML autosuggestion
+    * Temporality and Locality to "cache" likely shortcuts
 * Menu bar organizes all shortcuts - like the iMessage contact list
 * Links to documentation for shortcuts easily accessible
