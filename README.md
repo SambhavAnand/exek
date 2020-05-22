@@ -41,5 +41,26 @@ Email @ arman.jindal@columbia.edu or @ sambhav182@gmail.com
 * Menu bar organizes all shortcuts - like the iMessage contact list
 * Links to documentation for shortcuts easily accessible
 
-### Common Problems and Solutions
+### Common Questions and Solutions
 #### The search bar shows up, the shortcuts show up, but the command doesn't run when I hit return/enter
+This is probably happening because you forgot to give the app the permissions to execute commands on your behalf when prompted. 
+To fix this problem, on your mac go to:
+* System Preferences -> Security and Privacy -> Privacy and then scroll down to the Accessibility tab. 
+* Click on the Lock to on the bottom left to make changes. 
+* Toggle the check box next to **exek**.
+Note: if the box was already checked, and you're facing the problem, try to uncheck the box, and then checking it again. We faced this error
+during testing and rechecking the box fixed the issue.
+
+#### I am getting an unverfied developer error when I open your app
+We know this looks suss. We are working on getting a verified developer account but the process takes some time and we wanted to get this out there
+before. 
+In order to fix this error, on your mac go to:
+* System Preferences -> Security and Privacy -> General
+* You'll see a prompt which says Apple blocked an app from an unverified developer. Click on the lock to make changes, and then click on open anyways. 
+* You should be able to install the app now. 
+* As usual, to activate the search bar, hit Ctrl + k on your keyboard. 
+
+#### I've installed the app successfully but how do I run this. 
+Pull up your preview bar (Command + Space) and type exek. Select the application and hit enter. The app will now start running in the background. 
+You should see a logo pop up on the top right of your menu bar. You can now pull up the search bar at any point by hitting Ctrl + k
+The first time you open up the bar, you might be asked to grant the app permissions to execute commands on your behalf. 

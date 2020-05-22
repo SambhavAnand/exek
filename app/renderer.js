@@ -124,7 +124,7 @@ const outputHTML = matches => {
     matchList.innerHTML = html
     var ul = document.getElementById('match-list');
     var len = ul.getElementsByTagName('ul').length-1;
-    if  (len>0) {
+    if  (len>=0) {
       liSelected = ul.getElementsByTagName('ul')[0]
       addClass(liSelected, 'selected')
     }
