@@ -20,9 +20,9 @@ function toggleWindow() {
         win.hide()
     }
     else {
-        win.setVisibleOnAllWorkspaces(true);
-        win.show();
-        win.setVisibleOnAllWorkspaces(false);
+        win.setVisibleOnAllWorkspaces(true)
+        win.show()
+        win.setVisibleOnAllWorkspaces(false)
     }
 }
 
@@ -103,13 +103,9 @@ app.on("ready", () => {
     ]);
     tray.setContextMenu(contextMenu);
     app.dock.hide()
-    // const mb = menubar({
-    //     tray,
-    // });
-    // mb.on('after-show', () => {
-    //     mb._isVisible = true;
-    //     mb.window.hideWindow()
-    // })
+    const mb = menubar({
+        tray,
+    });
 });
 
 
