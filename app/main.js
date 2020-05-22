@@ -5,7 +5,7 @@ const { verify } = require('./scripts/lib')
 const { menubar } = require('menubar')
 const { ShortcutsStore, Store } = require('./scripts/util')
 
-const iconPath = app.isPackaged ? path.join(process.resourcesPath, "resources/IconTemplate.png") : "./assets/IconTemplate.png";
+const iconPath = app.isPackaged ? path.join(process.resourcesPath, "resources/iconTemplate.png") : "./assets/iconTemplate.png";
 
 //write function with min/max limits so that the size of the window is always resonable
 //Local Shortcut shortcutsStore
