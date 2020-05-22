@@ -102,11 +102,16 @@ app.on("ready", () => {
         }
     ]);
     tray.setContextMenu(contextMenu);
-    tray.on('click', () => console.log("clicked"))
+    app.dock.hide()
     const mb = menubar({
         tray,
     });
+    mb.on('after-show', () => {
+        mb._isVisible = true;
+        mb.window.hideWindow()
+    })
 });
+
 
 
 shortcutsStore.on('newDataAvailable', (newData) => {

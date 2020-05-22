@@ -102,11 +102,6 @@ const chromeShortcuts = {
       shortcut: "⌘ + l",
     },
     {
-      text: "Open options to print the current page",
-      command: `keystroke "p" using {command down}`,
-      shortcut: "⌘ + p",
-    },
-    {
       text: "Open options to save the current page",
       command: `keystroke "s" using {command down}`,
       shortcut: "⌘ + s",
