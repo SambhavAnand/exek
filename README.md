@@ -5,7 +5,7 @@ If you are reading this, you are probably a friend of mine (Arman) or Sambhav. *
 
 **Exek** is pulled up with a with **Ctrl-K** or via the menu bar icon which appears in the top right. The tool detects the programs running in the foreground and loads relevant shortcuts in the search bar. We use  __fuzzy__ searching to match the search to shortcuts and their tags (we intend to improve this in the future). The user can navigate through the bar using arrow keys and also execute shortcut by pressing the return (enter) key. **Ctrl-K** toggles the window in and out of the view.
 
-TODO - Add the GIF animation
+![README-Demo](https://user-images.githubusercontent.com/58370547/82637180-ddf69500-9c21-11ea-99d1-ef4f55686e13.gif)
 
 ## Current Apps/Website Support
 Currently the following are supported: 
