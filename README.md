@@ -23,6 +23,7 @@ Currently the following are supported:
 10. Apple Calendar
 11. github.com
 12. Atom
+13. Mail (Mac App)
 
 If you find yourself using this tool for a program or site where we don't have shortcuts supported - let us know and either Sambhav or I will add it ASAP. 
 
