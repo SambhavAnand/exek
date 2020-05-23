@@ -18,4 +18,19 @@ app.get('/getUpdates', (req, res) => {
     .catch(error => res.send(error))
 })
 
+app.get('/reportError', (req, res) => {
+    console.log(req.query)
+    helpers.logError(req.query['errorMsg'])
+    res.send()
+})
+
+app.get('/getErrors', async (req, res) => {
+    try {
+        res.send(await helpers.getErrors())
+    }
+    catch(error) {
+        res.send("No Errors Logged")
+    }
+})
+
 app.listen(port, ()=>console.log(`App is listening on PORT: ${port}`))

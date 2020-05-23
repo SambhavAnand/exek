@@ -38,10 +38,43 @@ function generateUpdates(lastUpdateTime) {
     })
 }
 
+function logError(errorMsg) {
+    if(errorMsg) {
+        db.get('errors', function (err, values) {
+            if(err) {
+                db.put('errors', [errorMsg], function (err) {
+                    if (err)
+                        console.log("Error with level db")
+                })
+            }
+            else {
+                const newErrors = [...values, errorMsg]
+                db.put('errors', newErrors, function (err) {
+                    if (err)
+                        console.log("An error occurred working with level db")
+                })
+            }
+        })
+    }
+}
+
+function getErrors() {
+    return new Promise(function (resolve, reject) {
+        db.get('errors', function(err, values) {
+            if (err)
+                reject("No Errors logged yet")
+            else
+                resolve(values)
+        })
+    })
+}
+
 buildLevelDbStore().then(()=>db.get('lastUpdated')).then(data => console.log(data))
 
 module.exports = {
     generateUpdates, 
-    buildLevelDbStore
+    buildLevelDbStore,
+    logError,
+    getErrors
 }
 
