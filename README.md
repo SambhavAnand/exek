@@ -1,5 +1,5 @@
 # Exek - A Shortcut Power Tool
-You demand the best for your editor. Why not use all your programs like a power user. Exek, a ctrl-K, spotlight search bar allows you to find and execute shortcuts for all your applications and websites fast.  
+You demand the best for your editor. Why not use all your programs like a power user. Exek, a ctrl-K, spotlight search bar allows you to find and execute shortcuts for all your applications and websites fast. Download [here](https://storage.googleapis.com/exek/exek-1.0.0.dmg "Title")
 ## The Tool
 If you are reading this, you are probably a friend of mine (Arman) or Sambhav. **Exek** is a "spotlight" search for shortcuts. As programmers and general power users of our computers, there are always a number of shortcuts we remember. A handful at most, but given the high frequency of use they save time, reduce frustration, and make using the software easier, faster, and more enjoyable. The purpose of this tool is to expand the number of shortcuts one uses and speed up the process of executing shortcuts.  
 
