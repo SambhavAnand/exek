@@ -16,13 +16,13 @@ const sublimeShortcuts = [
     shortcut: "⌘ + ⇧ + ↩"
 },
 {
-    text: 'Move line/selection up',
-    command: 'keycode "126" using {command down, control down}',
+    text: 'Move line selection up',
+    command: `key code "126" using {command down, control down}`,
     shortcut: "⌘ + ⌃ + ↑"
 },
 {
-    text: 'Move line/selection down',
-    command: 'keycode "126" using {command down, control down}',
+    text: 'Move line selection down',
+    command: 'key code "125" using {command down, control down}',
     shortcut: "⌘ + ⌃ + ↓"
 },
 {
@@ -42,12 +42,12 @@ const sublimeShortcuts = [
 },
 {
     text: 'Extra cursor on the line above',
-    command: 'keycode "126" using {control down, shift down}',
+    command: 'key code "126" using {control down, shift down}',
     shortcut: "⌃ + ⇧ + ↑"
 },
 {
     text: 'Extra cursor on the line below',
-    command: 'keycode "126" using {control down, shift down}',
+    command: 'key code "126" using {control down, shift down}',
     shortcut: "⌃ + ⇧ + ↓"
 },
 {
@@ -67,23 +67,25 @@ const sublimeShortcuts = [
 },
 {
     text: 'Move to beginning of text on line',
-    command: 'keycode "123" using {command down}',
+    command: 'key code "123" using {command down}',
     shortcut: "⌘ + Left"
 },
 {
     text: 'Move to end of line',
-    command: 'keycode "124" using {command down}',
+    command: 'key code "124" using {command down}',
     shortcut: "⌘ + Right"
 },
 {
     text: 'Delete from cursor to end of line',
-    command: 'keystroke "k" using {command down}',
+    command: `keystroke "k" using {command down}
+    keystroke "k" using {command down}`,
     shortcut: "⌘ + K"
 },
 //make sure this one works and the syntax isnt fucked
 {
     text: 'Delete from cursor to start of line',
-    command: 'keystroke "k" keycode "51" using {command down}',
+    command: `keystroke "k" using {command down}
+    key code "51" using {command down}`,
     shortcut: "⌘ + K + ⌫"
 },
 {
@@ -108,12 +110,12 @@ const sublimeShortcuts = [
 },
 {
     text: 'Comment/un-comment current line',
-    command: 'keycode "44" using {command down}',
+    command: 'key code "44" using {command down}',
     shortcut: "⌘ + /"
 },
 {
     text: 'Block comment current selection',
-    command: 'keycode "/" using {command down, option down}',
+    command: 'keystroke "/" using {command down, option down}',
     shortcut: "⌘ + ⌥ + /"
 },
 {
@@ -128,7 +130,7 @@ const sublimeShortcuts = [
 },
 {
     text: 'Select next auto-complete suggestion',
-    command: 'keycode "49" using {control down}',
+    command: 'key code "49" using {control down}',
     shortcut: "⌃ + Space"
 },
 { 
@@ -138,12 +140,12 @@ const sublimeShortcuts = [
 },
 {
     text: 'Column selection up',
-    command: 'keycode "126" using {control down, shift down}',
+    command: 'key code "126" using {control down, shift down}',
     shortcut: "⌃ + ⇧ + Up"
 },
 {
     text: 'Column selection down',
-    command: 'keycode "125" using {control down, shift down}',
+    command: 'key code "125" using {control down, shift down}',
     shortcut: "⌃ + ⇧ + Down"
 },
 {
@@ -185,7 +187,7 @@ const sublimeShortcuts = [
 },
 {
     text: 'Show/hide Console',
-    command: 'keycode "50" using {control down}',
+    command: 'key code "50" using {control down}',
     shortcut: "⌃ + `"
 },
 {
@@ -200,8 +202,9 @@ const sublimeShortcuts = [
 },
 {
     text: 'Toggle side bar',
-    command: 'keystroke "K" using {command down}',
-    shortcut: "⌘ + K"
+    command: `keystroke "k" using {command down}
+    keystroke "b" using {command down}`,
+    shortcut: "⌘ + K ⌘ + B"
 },
 {
     text: 'Show scope in status bar',
@@ -237,12 +240,12 @@ const sublimeShortcuts = [
 },
 {
     text: 'Scroll to end of file',
-    command: 'keycode "125" using {command down}',
+    command: 'key code "125" using {command down}',
     shortcut: "⌘ + Down"
 },
 {
     text: 'Scroll to start of file',
-    command: 'keycode "126" using {command down}',
+    command: 'key code "126" using {command down}',
     shortcut: "⌘ + Up"
 },
 //Tabs
@@ -273,12 +276,12 @@ const sublimeShortcuts = [
 },
 {
     text: 'Cycle up through recent tabs',
-    command: 'keycode "48" using {control down}}',
+    command: 'key code "48" using {control down}}',
     shortcut: "^ + Tab"
 },
 {
     text: 'Cycle down through recent tabs',
-    command: 'keycode "48" using {shift down}',
+    command: 'key code "48" using {shift down}',
     shortcut: "⇧ + ^ + Tab"
 },
 //Split window
@@ -311,43 +314,45 @@ const sublimeShortcuts = [
 //Bookmarks
 {
     text: 'Toggle bookmark',
-    command: 'keycode "113" using {command down}',
+    command: 'key code "113" using {command down}',
     shortcut: "⌘ + F2"
 },
 {
     text: 'Next bookmark',
-    command: 'keycode "113" using}',
+    command: 'key code "113" using}',
     shortcut: "F2"
 },
 {
     text: 'Previous bookmark',
-    command: 'keycode "113" using {shift down}',
+    command: 'key code "113" using {shift down}',
     shortcut: "⇧ + F2"
 },
 {
     text: 'Clear bookmarks',
-    command: 'keycode "113" using {command down, shift down}',
+    command: 'key code "113" using {command down, shift down}',
     shortcut: "⇧ + ⌘ + F2"
 },
 //Text manipulation
 {
     text: 'Transform to Uppercase',
-    command: 'keystroke "k" using {command down} keystroke "u" using {command down}',
+    command: `keystroke "k" using {command down} 
+    keystroke "u" using {command down}`,
     shortcut: "⌘ + K  ⌘ + U"
 },
 {
     text: 'Transform to Lowercase',
-    command: 'keystroke "k" using {command down} keystroke "l" using {command down}',
+    command: `keystroke "k" using {command down} 
+    keystroke "l" using {command down}`,
     shortcut: "⌘ + K  ⌘ + L"
 },
 {
     text: 'Move text upwards',
-    command: 'keycode "126" using {command down, control down}',
+    command: 'key code "126" using {command down, control down}',
     shortcut: "⌘ + ⌃ + up"
 },
 {
     text: 'Move text downwards',
-    command: 'keycode "125" using {command down, control down}',
+    command: 'key code "125" using {command down, control down}',
     shortcut: "⌘ + ⌃ + down"
 },
 ]

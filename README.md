@@ -1,16 +1,9 @@
 # Exek - A Shortcut Power Tool
-First release. (TO-ADD) Link to download. Mac only for now...
-
+You demand the best for your editor. Why not use all your programs like a power user. Exek, a ctrl-K, spotlight search bar allows you to find and execute shortcuts for all your applications and websites fast.  
 ## The Tool
-<<<<<<< HEAD
-If you are reading this, you are probably a friend of mine (Arman) or Sambhav. This tool (yet to be named) is a "spotlight" search for shorcuts. As programmers and general powerusers of our computers, there are always a number of shortcut we remeber. A handful at most, but given the high frequency of use they save time, redeuce frustration, and make using software easier, faster and more enjoyable. The purpose of this tool is to expand the number of shortcuts one uses and speed up the process of executing shortcuts.  
-
-The tool - search bar - is pulled up with a with **Ctrl-K** or via the menu bar icon which appears in the top right. The tool detects the programs running in the foreground and loads relevant shorcuts in the search bar. Search is  __fuzzy__ using simple RegularExpression to match the search to shortcuts and their tags (we inted to improve this in the future). Using the key arrows up and down you can navigate the shortcuts and the enter keypress the shortcut is executed (see exmaple below). **Ctrl-K** toggles the window into view. The window can be dragged anywhere in the screen. 
-=======
 If you are reading this, you are probably a friend of mine (Arman) or Sambhav. **Exek** is a "spotlight" search for shortcuts. As programmers and general power users of our computers, there are always a number of shortcuts we remember. A handful at most, but given the high frequency of use they save time, reduce frustration, and make using the software easier, faster, and more enjoyable. The purpose of this tool is to expand the number of shortcuts one uses and speed up the process of executing shortcuts.  
 
 **Exek** is pulled up with a with **Ctrl-K** or via the menu bar icon which appears in the top right. The tool detects the programs running in the foreground and loads relevant shortcuts in the search bar. We use  __fuzzy__ searching to match the search to shortcuts and their tags (we intend to improve this in the future). The user can navigate through the bar using arrow keys and also execute shortcut by pressing the return (enter) key. **Ctrl-K** toggles the window in and out of the view.
->>>>>>> 62bcb4cb57e5368826599c9b3f4c6f9afdb12ec2
 
 TODO - Add the GIF animation
 
@@ -32,10 +25,6 @@ Thanks a bunch for using this and giving us feedback. Over the course of the nex
 Email @ arman.jindal@columbia.edu 
 
 ### Technical Details 
-<<<<<<< HEAD
-* The is application built with the electron framework which wraps around Javascrip, CSS, and HTML
-* Backend is a remote server for the backend to make our database of shortcuts updatable without requiring users to update the app/host the files locally. This design decison is impleted anticipating an API for user to add shortcuts. 
-=======
 * The is an application built with the Electron framework which wraps around Javascript, CSS, and HTML
 * The backend is a simple express server hosted on heroku. It's backed by a simple level-db database in order to dynamically server the user new shortcuts without an application update. The backend will also add an api endpoint in the future which allows users to add and define their own shortcuts.
 
@@ -75,4 +64,3 @@ The first time you open up the bar, you might be asked to grant the app permissi
 #### I'm facing some other issue
 Please reach out to Arman or me (Sambhav) detailing the problems you are facing. As always, don't hesitate to be brutally honest with any feedback/suggestions
 you might have. 
->>>>>>> 62bcb4cb57e5368826599c9b3f4c6f9afdb12ec2
