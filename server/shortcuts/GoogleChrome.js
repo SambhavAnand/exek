@@ -1,7 +1,13 @@
 const { websiteShortcutMapping } = require("./website-shortcuts");
 
 const chromeShortcuts = {
-  appShortcuts: [{
+  appShortcuts: [
+    {
+      text: "Search the web",
+      command: `keystroke "f" using {command down, option down}`,
+      shortcut: "⌘ + option + f"
+    },
+    {
       text: "Open a new window",
       command: `keystroke "n" using {command down}`,
       shortcut: "⌘ + n",
@@ -70,6 +76,11 @@ const chromeShortcuts = {
       command: `keystroke "g" using {command down, shift down}`,
       shortcut: "⌘ + Shift + g",
       tags: "search",
+    },
+    {
+      text: "Open the javascript console",
+      command: `keystroke "j" using {command down, option down}`,
+      shortcut: "⌘ + option + j"
     },
     {
       text: "Open the Settings page in a new tab",

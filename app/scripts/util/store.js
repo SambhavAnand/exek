@@ -36,21 +36,23 @@ class ShortcutsStore extends EventEmitter{
         const userDataPath = (app.getPath('userData') || remote.getPath('userData'))
         this.filePath = path.join(userDataPath, 'shortcuts.json')
         this.options = options
+        this.data = {}
     }
     getShortcuts = () => {
         const filePath = this.filePath
+        const self = this
         const emit = this.emit.bind(this);
         console.log(filePath)
         return new Promise(function (resolve, reject) {
             fs.access(filePath, fs.F_OK, function(err) {
                 //File does not exist
                 if(err) {
-                    console.log("Data doesnt exist")
                     fetch(`${serverURL}/getUpdates`)
                     .then(res => res.json())
                     .then(data => {
                         //Parse the required data
                         const fileData = {allShortcuts: data['shortcuts'], lastUpdatedTime: data['newUpdatedTime']}
+                        self.data = fileData
                         resolve(fileData['allShortcuts'])
                         //Asynchronously write the data. Think about whether this error needs to be handled
                         writeToFile(filePath, fileData, 'ASYNC')
@@ -59,27 +61,42 @@ class ShortcutsStore extends EventEmitter{
                 }   
                 else {
                     //Data was found in the path
-                    const data = readFileSync(filePath)
+                    if (Object.keys(self.data).length === 0 && self.data.constructor === Object) {
+                        self.data = readFileSync(filePath)
+                        // data = readFileSync(filePath)
+                    } 
+                    const data = Object.assign({}, self.data)
                     // const data = JSON.parse(fs.readFileSync(filePath))
                     resolve(data['allShortcuts'])
                     //Check for any new updates and update the local store accordingly
-                    const qs = querystring.stringify({lastUpdatedTime: data['lastUpdatedTime']})
-
-                    fetch(`${serverURL}/getUpdates?${qs}`)
-                    .then(res => res.json())
-                    .then(serverData => {
-                        //New Data is available, update the local data store
-                        if(serverData['type'] === 'NEW_DATA_AVAILABLE') {
-                            console.log(serverData['type'], "Updating local file store")
-                            const fileData = {allShortcuts: serverData['shortcuts'], lastUpdatedTime: serverData['newUpdatedTime']}
-                            emit("newDataAvailable", fileData['allShortcuts'])
-                            writeToFile(filePath, fileData, 'ASYNC')
-                        }
-                    })
-                    .catch(error => console.log('Error occurred', error))
+                    self.checkForUpdates()
                 }
             })
         })
+    }
+
+    checkForUpdates = () => {
+        const lastUpdatedTime = this.data['lastUpdatedTime']
+        if (!lastUpdatedTime)
+            return
+        const qs = querystring.stringify({lastUpdatedTime: lastUpdatedTime})
+
+        fetch(`${serverURL}/getUpdates?${qs}`)
+          .then((res) => res.json())
+          .then((serverData) => {
+            //New Data is available, update the local data store
+            if (serverData["type"] === "NEW_DATA_AVAILABLE") {
+              console.log(serverData["type"], "Updating local file store");
+              const fileData = {
+                allShortcuts: serverData["shortcuts"],
+                lastUpdatedTime: serverData["newUpdatedTime"],
+              };
+              this.data = fileData
+              this.emit("newDataAvailable", fileData["allShortcuts"]);
+              writeToFile(this.filePath, fileData, "ASYNC");
+            }
+          })
+          .catch((error) => console.log("Error occurred", error));
     }
 }
 

@@ -118,6 +118,7 @@ shortcutsStore.on('newDataAvailable', (newData) => {
 })
 
 app.on('browser-window-focus', () => {
+    shortcutsStore.checkForUpdates()
     win.webContents.send("initialize", null);
     verify.getAppName()
     .then(async appName => { 
