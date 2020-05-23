@@ -7,7 +7,7 @@ const { app, remote } = require('electron')
 const fetch = require('electron-fetch').default
 const querystring = require('querystring')
 
-const serverURL = process.env.serverURL || "http://localhost:3000"
+const serverURL = process.env.serverURL || "https://exek.herokuapp.com"
 
 function writeToFile(filePath, data, type) {
     if(type==='ASYNC') {

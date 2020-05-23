@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "ctrl-k",
+=======
+  "name": "Exek",
+>>>>>>> 62bcb4cb57e5368826599c9b3f4c6f9afdb12ec2
   "version": "1.0.0",
   "description": "Quickly Search and execute shortcuts",
   "main": "main.js",
@@ -16,7 +20,11 @@
     "electron-builder": "^22.6.1"
   },
   "build": {
+<<<<<<< HEAD
     "appId": "ctrl-k",
+=======
+    "appId": "Exek",
+>>>>>>> 62bcb4cb57e5368826599c9b3f4c6f9afdb12ec2
     "mac": {
       "category": "public.app.category.productivity"
     },
