@@ -165,7 +165,6 @@ document.addEventListener('keydown', function(event) {
       if(liSelected) {
         const metadata = liSelected.getElementsByClassName('shortcut-cmd')[0].innerHTML
         const [command, appName] = metadata.split(';')
-        console.log(metadata);
         execCommand.execCommand(currentAppName, command)
       }
   }

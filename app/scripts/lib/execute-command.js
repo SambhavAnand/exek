@@ -1,6 +1,9 @@
 const applescript = require('applescript')
 
 const errors = require('../errors')
+const querystring = require('querystring')
+
+const serverURL = process.env.serverURL || "https://exek.herokuapp.com"
 
 function execCommand(appName, commandString) {
     /**
@@ -15,10 +18,12 @@ function execCommand(appName, commandString) {
         end tell
         end tell`
         return new Promise(function (resolve, reject) {
-            console.log(chromeScript)
             applescript.execString(chromeScript, function (err) {
                 if(err) {
-                    console.log(err)
+                    const qs = querystring.stringify({errorMsg: err['appleScript']})
+                    window.fetch(`${serverURL}/reportError?${qs}`)
+                    .then(() => console.log("Successfully logged an error"))
+                    .catch(error => console.log("error occurred"))
                     reject(errors['APPLESCRIPT'])
                 }
                 else
