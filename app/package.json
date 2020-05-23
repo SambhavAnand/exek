@@ -1,5 +1,5 @@
 {
-  "name": "controlk",
+  "name": "ctrl-k",
   "version": "1.0.0",
   "description": "Quickly Search and execute shortcuts",
   "main": "main.js",
@@ -16,7 +16,7 @@
     "electron-builder": "^22.6.1"
   },
   "build": {
-    "appId": "commandk",
+    "appId": "ctrl-k",
     "mac": {
       "category": "public.app.category.productivity"
     },
