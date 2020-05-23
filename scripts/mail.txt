@@ -1,0 +1,83 @@
+Start a new email
+
+Command-N
+
+Open a new Mail viewer window
+
+Option-Command-N
+
+Attach files to your email
+
+Shift-Command-A
+
+Paste text into your email as a quotation
+
+Shift-Command-V
+
+Append selected emails to your email
+
+Option-Command-I
+
+Show the BCC address field in your email
+
+Option-Command-B
+
+Show the Reply-To address field in your email
+
+Option-Command-R
+
+Get new emails
+
+Shift-Command-N
+
+Erase junk mail
+
+Option-Command-J
+
+Send emails
+
+Shift-Command-D
+
+Reply to the selected email
+
+Command-R
+
+Reply All to the selected email
+
+Shift-Command-R
+
+Forward the selected email
+
+Shift-Command-F
+
+Redirect the selected email
+
+Shift-Command-E
+
+Mark the selected emails as read
+
+Shift-Command-U
+
+Move the selected emails to the Junk mailbox
+
+Shift-Command-J
+
+Archive the selected emails
+
+Control-Command-A
+
+Apply active Mail rules
+
+Control-Command-L
+
+Format the current email as Plain Text or Rich Format
+
+Shift-Command-T
+
+Show the Mail viewer window
+
+Command-0
+
+Show the Mail Activity window
+
+Control-Command-0

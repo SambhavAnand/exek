@@ -8,6 +8,7 @@ const { finderShortcuts } = require('./Finder')
 const { safariShortcuts } = require('./Safari')
 const { sublimeShortcuts } = require('./Sublime')
 const { excelShortcuts } = require('./MicrosoftExcel')
+const { mailShortcuts } = require('./Mail')
 
 const allShortcuts = {
     "MacOS": macShortcuts,
@@ -19,7 +20,8 @@ const allShortcuts = {
     "Finder": finderShortcuts,
     "Safari": safariShortcuts,
     "Sublime Text": sublimeShortcuts,
-    "Microsoft Excel": excelShortcuts
+    "Microsoft Excel": excelShortcuts,
+    "Mail": mailShortcuts
 }
 
 module.exports = {
