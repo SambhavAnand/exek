@@ -1,5 +1,5 @@
 # Exek - A Shortcut Power Tool
-You demand the best for your editor. Why not use all your programs like a power user. Exek, a ctrl-K, spotlight search bar allows you to find and execute shortcuts for all your applications and websites fast. Download [here](https://storage.googleapis.com/exek/exek-1.0.0.dmg "Title")
+You demand the best for your editor. Why not use all your programs like a power user. Exek, a search bar activated on **Ctrl + k** allows you to find and execute shortcuts for all your applications and websites quickly. Download [here](https://storage.googleapis.com/exek/exek-1.0.0.dmg "Title")
 ## The Tool
 If you are reading this, you are probably a friend of mine (Arman) or Sambhav. **Exek** is a "spotlight" search for shortcuts. As programmers and general power users of our computers, there are always a number of shortcuts we remember. A handful at most, but given the high frequency of use they save time, reduce frustration, and make using the software easier, faster, and more enjoyable. The purpose of this tool is to expand the number of shortcuts one uses and speed up the process of executing shortcuts.  
 
@@ -13,16 +13,21 @@ Currently the following are supported:
 2. Google Chrome Browser 
 3. GSuite : Gmail, Docs, Excel, Calendar, Youtube
 4. Microsoft: Word, PPT 
-5. (TODO) Sublime Text 
+5. Sublime Text 
 6. Notion
 7. Airtable 
+8. Safari
+9. Finder
+10. Apple Calendar
 
 If you find yourself using this tool for a program or site where we don't have shortcuts supported - let us know and either Sambhav or I will add it ASAP. 
 
 # Note to Friends/Early Users
 Thanks a bunch for using this and giving us feedback. Over the course of the next weekc(s) Sambhav and I will be in touch with you to get your feedback. Nothing like an email detailing your criticisms/ideas/what you enjoyed. Anything to make this tool better and turn it into something you would enjoy using is much appreciated! Please let us know if there are any bugs/isssues.
 
-Email @ arman.jindal@columbia.edu 
+Contact:
+@ arman.jindal@columbia.edu 
+@ sambhav182@gmail.com 
 
 ### Technical Details 
 * The is an application built with the Electron framework which wraps around Javascript, CSS, and HTML
