@@ -1,5 +1,8 @@
+# Download Links
+* [MacOS](https://storage.googleapis.com/exek/exek-1.0.0.dmg "Title")
+
 # Exek - A Shortcut Power Tool
-You demand the best for your editor. Why not use all your programs like a power user. Exek, a search bar activated on **Ctrl + k** allows you to find and execute shortcuts for all your applications and websites quickly. Download [here](https://storage.googleapis.com/exek/exek-1.0.0.dmg "Title").
+You demand the best for your editor. Why not use all your programs like a power user. Exek, a search bar activated on **Ctrl + k** allows you to find and execute shortcuts for all your applications and websites quickly. 
 NOTE: Because we currently don't have an apple developer account, you may face some sercurity/verification issues while trying to install this. Please bare with us and check out the steps to work around the issues at the bottom of this page. 
 
 ## The Tool
