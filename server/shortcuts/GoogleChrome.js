@@ -80,7 +80,8 @@ const chromeShortcuts = {
     {
       text: "Open the javascript console",
       command: `keystroke "j" using {command down, option down}`,
-      shortcut: "⌘ + option + j"
+      shortcut: "⌘ + option + j",
+      tags: "developer,inspect,elements"
     },
     {
       text: "Open the Settings page in a new tab",
@@ -96,11 +97,6 @@ const chromeShortcuts = {
       text: "Open the Downloads page in a new tab",
       command: `keystroke "j" using {command down, shift down}`,
       shortcut: "⌘ + Shift + j",
-    },
-    {
-      text: "Open Developer console",
-      command: `keystroke "j" using {command down, option down}`,
-      shortcut: "⌘ + Option + j"
     },
     {
       text: "When Find Bar is open, search for selected text",
