@@ -98,6 +98,11 @@ const chromeShortcuts = {
       shortcut: "⌘ + Shift + j",
     },
     {
+      text: "Open Developer console",
+      command: `keystroke "j" using {command down, option down}`,
+      shortcut: "⌘ + Option + j"
+    },
+    {
       text: "When Find Bar is open, search for selected text",
       command: `keystroke "e" using {command down}`,
       shortcut: "⌘ + e",
